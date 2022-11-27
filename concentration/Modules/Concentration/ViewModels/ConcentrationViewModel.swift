@@ -39,7 +39,6 @@ final class ConcentrationViewModel {
         return totalCards
     }
     
-    
     public func userTappedCard(ofIndex currentIndex: Int) {
         // User tapped an already matched card
         guard cards[currentIndex].isMatched == false else { return }
@@ -49,16 +48,16 @@ final class ConcentrationViewModel {
             // User tapped same card
             guard currentIndex != referenceIndex else { return  }
             
+            // User tapped different card
             userTappedDifferentCard(currentIndex: currentIndex, referenceIndex: referenceIndex)
-            
-            // update the previous card index to nil to start a new selection
-            self.referenceIndex = nil
         } else {
-            // User has not prviously tapped any card
+            // User has not previously tapped any card or User taps after a card was matched previously
             // update ref index to the current index
             referenceIndex = currentIndex
             cards[currentIndex].isFaceUp = true
         }
+        
+        viewState.value = .loaded
     }
     
     private func userTappedDifferentCard(currentIndex: Int, referenceIndex: Int) {
@@ -76,10 +75,10 @@ final class ConcentrationViewModel {
             cards[currentIndex].isFaceUp = false
             cards[referenceIndex].isFaceUp = false
         }
+        
+        // update the previous card index to nil to start a new selection
+        self.referenceIndex = nil
+
     }
-    
-    
-    
-    
     
 }
