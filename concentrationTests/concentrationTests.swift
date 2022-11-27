@@ -81,7 +81,6 @@ final class concentrationTests: XCTestCase {
         // user taps the same matched card
         concenterationViewModel.userTappedCard(ofIndex: 0)
         XCTAssertTrue(concenterationViewModel.referenceIndex == nil)
-
     }
     
 }

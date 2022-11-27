@@ -8,11 +8,12 @@
 import Foundation
 
 final class ConcentrationViewModel {
-    
     // MARK: - Stored properties
     var referenceIndex: Int?
-    
     var cards: [Card]
+    
+    var countryChoices: [Country] = Country.allCases
+    var associatedCardCountries: [Int: Country] = [Int: Country]()
     
     // MARK: - Reactive properties
     private (set) var viewState: Observable<Viewstate> = Observable(.initial)
@@ -20,16 +21,20 @@ final class ConcentrationViewModel {
     // MARK: - Initializers
     init(numberOfCardPairs: Int = 6) {
         guard numberOfCardPairs % 2 == 0 else { fatalError("Need even number of card pairs to generate the playing cards.")}
-        
         self.cards = ConcentrationViewModel.generateCards(for: numberOfCardPairs)
         
-        print(cards)
+        assignCountries()
+        userTappedCard(ofIndex: 4)
+        viewState.value = .loaded
     }
     
     deinit {
         print("ConcentrationViewModel deinit")
     }
-    
+}
+
+// MARK: - Card generation methods
+extension ConcentrationViewModel {
     private static func generateCards(for numberOfPairs: Int) -> [Card] {
         var totalCards = [Card]()
         for _ in 0..<numberOfPairs {
@@ -39,6 +44,18 @@ final class ConcentrationViewModel {
         return totalCards
     }
     
+    private func assignCountries() {
+        for card in cards {
+            guard associatedCardCountries[card.identifier] == nil else { continue }
+            if let randomIndex = countryChoices.randomIndex() {
+                associatedCardCountries[card.identifier] = countryChoices.remove(at: randomIndex)
+            }
+        }
+    }
+}
+
+// MARK: - User interaction methods
+extension ConcentrationViewModel {
     public func userTappedCard(ofIndex currentIndex: Int) {
         // User tapped an already matched card
         guard cards[currentIndex].isMatched == false else { return }
@@ -78,7 +95,5 @@ final class ConcentrationViewModel {
         
         // update the previous card index to nil to start a new selection
         self.referenceIndex = nil
-
     }
-    
 }

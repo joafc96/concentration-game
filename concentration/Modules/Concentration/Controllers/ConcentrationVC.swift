@@ -7,14 +7,17 @@
 
 import UIKit
 
-class ConcentrationVC: UIViewController {
-    
+class ConcentrationVC: UIViewController, ConcentrationCollectionProviderDelegate {
+
     // MARK: - Dependencies
-    let viewModel: ConcentrationViewModel
+    private let viewModel: ConcentrationViewModel
+    private let concentrationView: ConcentrationView
+    private let collectionViewProvider: ConcentrationCollectionProvider = ConcentrationCollectionProvider()
     
     // MARK: - Lifecycle
-    init(viewModel: ConcentrationViewModel) {
+    init(viewModel: ConcentrationViewModel, concentrationView: ConcentrationView = ConcentrationView(frame: UIScreen.main.bounds)) {
         self.viewModel = viewModel
+        self.concentrationView  =  concentrationView
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -22,10 +25,54 @@ class ConcentrationVC: UIViewController {
         fatalError("init(coder:) has not been implemented")
     }
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        view.backgroundColor =  .systemBackground
+    override func loadView() {
+        view = concentrationView
     }
     
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        configureBindables()
+        configureCollectionViewDelegates()
+    }
+}
 
+// MARK: - Reactive Behaviour
+extension ConcentrationVC {
+    private func configureBindables() {
+        viewModel.viewState.bind(listener: { [weak self] (viewState: Viewstate) in
+            guard let strongSelf = self else { return }
+            
+            switch viewState {
+            case .initial:
+                break
+            case .loading:
+                break
+            case .loaded:
+                strongSelf.collectionViewProvider.cards = strongSelf.viewModel.cards
+                strongSelf.concentrationView.collectionView.reloadData()
+                print(viewState)
+            case .error:
+                break
+            }
+        })
+    }
+}
+
+
+// MARK: - UI Configurations
+extension ConcentrationVC {
+    private func configureCollectionViewDelegates() {
+        collectionViewProvider.delegate = self
+        
+        concentrationView.collectionView.dataSource = collectionViewProvider
+        concentrationView.collectionView.delegate = collectionViewProvider
+    }
+}
+
+
+// MARK: - CollectionView Provider Delegates
+extension ConcentrationVC {
+    func didSelectCard(_ provider: ConcentrationCollectionProvider, card: Card) {
+        print(card)
+    }
 }

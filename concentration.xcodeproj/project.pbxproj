@@ -10,6 +10,13 @@
 		0B383C3F29332C6E00F5D5A7 /* Observable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B383C3E29332C6E00F5D5A7 /* Observable.swift */; };
 		0B383C4229332EEB00F5D5A7 /* ViewState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B383C4129332EEB00F5D5A7 /* ViewState.swift */; };
 		0B383C4A293346AB00F5D5A7 /* concentrationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B383C49293346AB00F5D5A7 /* concentrationTests.swift */; };
+		0B4EF1212933893200FD1E88 /* Country.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B4EF1202933893200FD1E88 /* Country.swift */; };
+		0B4EF1242933944400FD1E88 /* Array+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B4EF1232933944400FD1E88 /* Array+Extensions.swift */; };
+		0B4EF12629339E4900FD1E88 /* UIView+layout+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B4EF12529339E4900FD1E88 /* UIView+layout+Extensions.swift */; };
+		0B4EF12829339F1F00FD1E88 /* ConcentrationCollectionProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B4EF12729339F1F00FD1E88 /* ConcentrationCollectionProvider.swift */; };
+		0B4EF12A2933A2EC00FD1E88 /* ConcentrationCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B4EF1292933A2EC00FD1E88 /* ConcentrationCollectionViewCell.swift */; };
+		0B4EF12C2933AA6E00FD1E88 /* UIView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B4EF12B2933AA6E00FD1E88 /* UIView+Extensions.swift */; };
+		0B4EF12E2933AC4000FD1E88 /* CollectionView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B4EF12D2933AC4000FD1E88 /* CollectionView+Extensions.swift */; };
 		0BA1C5A32932237700A66C15 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BA1C5A22932237700A66C15 /* AppDelegate.swift */; };
 		0BA1C5A52932237700A66C15 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BA1C5A42932237700A66C15 /* SceneDelegate.swift */; };
 		0BA1C5AC2932237800A66C15 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0BA1C5AB2932237800A66C15 /* Assets.xcassets */; };
@@ -35,6 +42,13 @@
 		0B383C4129332EEB00F5D5A7 /* ViewState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewState.swift; sourceTree = "<group>"; };
 		0B383C47293346AB00F5D5A7 /* concentrationTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = concentrationTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		0B383C49293346AB00F5D5A7 /* concentrationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = concentrationTests.swift; sourceTree = "<group>"; };
+		0B4EF1202933893200FD1E88 /* Country.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Country.swift; sourceTree = "<group>"; };
+		0B4EF1232933944400FD1E88 /* Array+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array+Extensions.swift"; sourceTree = "<group>"; };
+		0B4EF12529339E4900FD1E88 /* UIView+layout+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+layout+Extensions.swift"; sourceTree = "<group>"; };
+		0B4EF12729339F1F00FD1E88 /* ConcentrationCollectionProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConcentrationCollectionProvider.swift; sourceTree = "<group>"; };
+		0B4EF1292933A2EC00FD1E88 /* ConcentrationCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConcentrationCollectionViewCell.swift; sourceTree = "<group>"; };
+		0B4EF12B2933AA6E00FD1E88 /* UIView+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extensions.swift"; sourceTree = "<group>"; };
+		0B4EF12D2933AC4000FD1E88 /* CollectionView+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CollectionView+Extensions.swift"; sourceTree = "<group>"; };
 		0BA1C59F2932237700A66C15 /* concentration.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = concentration.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0BA1C5A22932237700A66C15 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0BA1C5A42932237700A66C15 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -68,6 +82,7 @@
 		0B383C3D29332C5F00F5D5A7 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				0B4EF1222933942900FD1E88 /* Extensions */,
 				0B383C4029332EC400F5D5A7 /* Helpers */,
 			);
 			path = Utils;
@@ -78,6 +93,7 @@
 			children = (
 				0B383C3E29332C6E00F5D5A7 /* Observable.swift */,
 				0B383C4129332EEB00F5D5A7 /* ViewState.swift */,
+				0B4EF1202933893200FD1E88 /* Country.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -88,6 +104,17 @@
 				0B383C49293346AB00F5D5A7 /* concentrationTests.swift */,
 			);
 			path = concentrationTests;
+			sourceTree = "<group>";
+		};
+		0B4EF1222933942900FD1E88 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				0B4EF1232933944400FD1E88 /* Array+Extensions.swift */,
+				0B4EF12529339E4900FD1E88 /* UIView+layout+Extensions.swift */,
+				0B4EF12B2933AA6E00FD1E88 /* UIView+Extensions.swift */,
+				0B4EF12D2933AC4000FD1E88 /* CollectionView+Extensions.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 		0BA1C5962932237700A66C15 = {
@@ -153,6 +180,7 @@
 			isa = PBXGroup;
 			children = (
 				0BA1C5C42932273500A66C15 /* ConcentrationView.swift */,
+				0B4EF1292933A2EC00FD1E88 /* ConcentrationCollectionViewCell.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -177,6 +205,7 @@
 			isa = PBXGroup;
 			children = (
 				0BA1C5BE2932270000A66C15 /* ConcentrationVC.swift */,
+				0B4EF12729339F1F00FD1E88 /* ConcentrationCollectionProvider.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -289,13 +318,20 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0B4EF12C2933AA6E00FD1E88 /* UIView+Extensions.swift in Sources */,
 				0BA1C5BF2932270000A66C15 /* ConcentrationVC.swift in Sources */,
+				0B4EF1242933944400FD1E88 /* Array+Extensions.swift in Sources */,
+				0B4EF12A2933A2EC00FD1E88 /* ConcentrationCollectionViewCell.swift in Sources */,
+				0B4EF12829339F1F00FD1E88 /* ConcentrationCollectionProvider.swift in Sources */,
 				0BA1C5C32932272200A66C15 /* Card.swift in Sources */,
+				0B4EF1212933893200FD1E88 /* Country.swift in Sources */,
 				0BA1C5C12932271400A66C15 /* ConcentrationViewModel.swift in Sources */,
 				0B383C3F29332C6E00F5D5A7 /* Observable.swift in Sources */,
+				0B4EF12629339E4900FD1E88 /* UIView+layout+Extensions.swift in Sources */,
 				0BA1C5A32932237700A66C15 /* AppDelegate.swift in Sources */,
 				0BA1C5A52932237700A66C15 /* SceneDelegate.swift in Sources */,
 				0B383C4229332EEB00F5D5A7 /* ViewState.swift in Sources */,
+				0B4EF12E2933AC4000FD1E88 /* CollectionView+Extensions.swift in Sources */,
 				0BA1C5C52932273500A66C15 /* ConcentrationView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
