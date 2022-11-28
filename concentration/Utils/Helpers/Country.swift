@@ -20,6 +20,11 @@ enum Country: CaseIterable {
     case france
     case greece
     case iceland
+    case india
+    case indonesia
+    case ireland
+    case italy
+    
     
     var path: String {
         switch self {
@@ -28,7 +33,7 @@ enum Country: CaseIterable {
         case .australia:
             return "australia.jpg"
         case .austria:
-            return "asutria.jpg"
+            return "austria.jpg"
         case .brazil:
             return "brazil.jpg"
         case .canada:
@@ -47,6 +52,15 @@ enum Country: CaseIterable {
             return "greece.jpg"
         case .iceland:
             return "iceland.jpg"
+        case .india:
+            return "india.jpg"
+        case .indonesia:
+            return "indonesia.jpg"
+        case .ireland:
+            return "ireland.jpg"
+        case .italy:
+            return "italy.jpg"
+            
         }
     }
 }

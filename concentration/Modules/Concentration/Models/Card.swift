@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct Card {
+struct Card: Equatable {
     let identifier: Int
     var isFaceUp: Bool = false
     var isMatched: Bool = false
@@ -22,10 +22,14 @@ struct Card {
     init() {
         self.identifier = Card.getUniqueIdentifier()
     }
+    
+    static func == (lhs: Card, rhs: Card) -> Bool {
+        return lhs.identifier == rhs.identifier
+    }
 }
 
 extension Card: CustomStringConvertible {
     var description: String {
-        "Card id \(identifier), isM \(isMatched) & isFU \(isFaceUp)"
+        "\(identifier)\(isFaceUp)\(isMatched)"
     }
 }

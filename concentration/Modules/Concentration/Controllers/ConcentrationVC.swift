@@ -31,6 +31,12 @@ class ConcentrationVC: UIViewController, ConcentrationCollectionProviderDelegate
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        // called only once
+        collectionViewProvider.associatedCountries = viewModel.associatedCardCountries
+        
+        viewModel.delegate = self
+        viewModel.startGame()
+        
         configureBindables()
         configureCollectionViewDelegates()
     }
@@ -39,22 +45,24 @@ class ConcentrationVC: UIViewController, ConcentrationCollectionProviderDelegate
 // MARK: - Reactive Behaviour
 extension ConcentrationVC {
     private func configureBindables() {
-        viewModel.viewState.bind(listener: { [weak self] (viewState: Viewstate) in
-            guard let strongSelf = self else { return }
-            
-            switch viewState {
-            case .initial:
-                break
-            case .loading:
-                break
-            case .loaded:
-                strongSelf.collectionViewProvider.cards = strongSelf.viewModel.cards
-                strongSelf.concentrationView.collectionView.reloadData()
-                print(viewState)
-            case .error:
-                break
-            }
-        })
+//        viewModel.viewState.bind(listener: { [weak self] (viewState: Viewstate) in
+//            guard let strongSelf = self else { return }
+//
+//            switch viewState {
+//            case .initial:
+//                break
+//            case .loading:
+//                break
+//            case .loaded:
+//                DispatchQueue.main.async {
+//                    strongSelf.collectionViewProvider.cards = strongSelf.viewModel.cards
+//                    strongSelf.concentrationView.collectionView.reloadData()
+//                }
+//
+//            case .error:
+//                break
+//            }
+//        })
     }
 }
 
@@ -72,7 +80,39 @@ extension ConcentrationVC {
 
 // MARK: - CollectionView Provider Delegates
 extension ConcentrationVC {
-    func didSelectCard(_ provider: ConcentrationCollectionProvider, card: Card) {
-        print(card)
+    func didSelectCard(_ provider: ConcentrationCollectionProvider, withIndex index: Int) {
+        viewModel.userTappedCard(ofIndex: index)
+
     }
+}
+
+
+extension ConcentrationVC: ConcentrationGameProtocol {
+    func concentrationGameDidStart(_ game: ConcentrationViewModel) {
+        collectionViewProvider.cards = viewModel.cards
+        collectionViewProvider.associatedCountries = viewModel.associatedCardCountries
+        concentrationView.collectionView.reloadData()
+    }
+    
+    func concentrationGame(_ game: ConcentrationViewModel, showCards cardIndices: [Int]) {
+        for index in cardIndices {
+//                   guard let index = viewModel.indexForCard(card) else { continue }
+            let cell = concentrationView.collectionView.cellForItem(at: IndexPath(item: index, section:0)) as! ConcentrationCollectionViewCell
+                   cell.showCard(true)
+        }
+    }
+    
+    func concentrationGame(_ game: ConcentrationViewModel, hideCards cardIndices: [Int]) {
+        for index in cardIndices {
+//                   guard let index = viewModel.indexForCard(card) else { continue }
+            let cell = concentrationView.collectionView.cellForItem(at: IndexPath(item: index, section:0)) as! ConcentrationCollectionViewCell
+                   cell.showCard(false)
+        }
+    }
+    
+    func concentrationGameDidEnd(_ game: ConcentrationViewModel) {
+        
+    }
+    
+    
 }

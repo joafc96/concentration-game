@@ -23,16 +23,48 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "5CFBEC9A-ADDD-4B69-9187-CB5116D16325"
-            shouldBeEnabled = "No"
+            uuid = "EB16C616-561E-498F-B8C8-C4184034C78A"
+            shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "concentration/Modules/Concentration/ViewModels/ConcentrationViewModel.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "77"
-            endingLineNumber = "77"
-            landmarkName = "userTappedCard(ofIndex:)"
+            startingLineNumber = "132"
+            endingLineNumber = "132"
+            landmarkName = "userTappedDifferentCard(currentIndex:referenceIndex:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "51446FC9-3299-4051-92B6-4574889477E6"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "concentration/Modules/Concentration/ViewModels/ConcentrationViewModel.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "112"
+            endingLineNumber = "112"
+            landmarkName = "userTappedDifferentCard(currentIndex:referenceIndex:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "67A7D3D7-3A6B-403E-A3F4-49585747C1C0"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "concentration/Modules/Concentration/Controllers/ConcentrationVC.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "92"
+            endingLineNumber = "92"
+            landmarkName = "concentrationGameDidStart(_:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

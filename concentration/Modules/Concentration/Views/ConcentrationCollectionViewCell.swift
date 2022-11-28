@@ -8,7 +8,21 @@
 import UIKit
 
 class ConcentrationCollectionViewCell: UICollectionViewCell {
-    public let imageView: UIImageView = {
+    
+    
+//    var cellIdentifier: UUID = UUID()
+    
+    private let frontImageView: UIImageView = {
+        let imgView = UIImageView()
+        imgView.translatesAutoresizingMaskIntoConstraints = false
+        imgView.layer.cornerRadius = 8
+        imgView.clipsToBounds = true
+        imgView.contentMode = .scaleAspectFill
+        
+        return imgView
+    }()
+    
+    private let backImageView: UIImageView = {
         let imgView = UIImageView()
         imgView.translatesAutoresizingMaskIntoConstraints = false
         imgView.layer.cornerRadius = 8
@@ -25,51 +39,62 @@ class ConcentrationCollectionViewCell: UICollectionViewCell {
         configureSubViews()
         configureConstraints()
     }
-
+    
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
     //MARK: - UI Configurations
     private func configureSubViews() {
-        addSubview(imageView)
+        addSubview(backImageView)
+        addSubview(frontImageView)
+        
+        sendSubviewToBack(frontImageView)
     }
     
     private func configureConstraints() {
-        
-        imageView.fillInSuperView()
-        
-//        mainStackView.centerYInSuperview()
-//        mainStackView.constraintHeight(constant: 140)
-//
-//        let mainStackViewConstraints = [
-//            mainStackView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 8),
-//            mainStackView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -8),
-//        ]
-//
-//        let detailsStackViewConstraints = [
-//            detailsStackView.trailingAnchor.constraint(equalTo: mainStackView.trailingAnchor),
-//            detailsStackView.bottomAnchor.constraint(equalTo: mainStackView.bottomAnchor),
-//        ]
-//
-//        posterImage.constraintWidth(constant: 100)
-//        posterImage.constraintHeight(constant: 140)
-//
-//        NSLayoutConstraint.activate(detailsStackViewConstraints)
-//        NSLayoutConstraint.activate(mainStackViewConstraints)
-    }
+        backImageView.fillInSuperView()
+        frontImageView.fillInSuperView()
 
-    public func configureCell(withCard card: Card) {
-//        titleLabel.text = movie.title
-//        overViewLabel.text = movie.overview
-//        guard let posterPath = movie.posterPath else { return }
-//        guard let imageUrl = Endpoint.posterImage(path: posterPath, quality: ImageQuality.posterMedium.rawValue).imageUrl else { return }
-//        posterImage.set(for: imageUrl)
+    }
+    
+    override func prepareForReuse() {
+        super.prepareForReuse()
+    }
+    
+    public func showCard(_ show: Bool, animated: Bool = true) {
+        frontImageView.isHidden = false
+        backImageView.isHidden = false
+        if animated {
+                  if show {
+                      UIView.transition(
+                          from: backImageView,
+                          to: frontImageView,
+                          duration: 0.3,
+                          options: [.transitionFlipFromRight, .showHideTransitionViews],
+                          completion: nil)
+                  } else {
+                      UIView.transition(
+                          from: frontImageView,
+                          to: backImageView,
+                          duration: 0.3,
+                          options: [.transitionFlipFromRight, .showHideTransitionViews],
+                          completion:  nil)
+                  }
+              } else {
+                  if show {
+                      bringSubviewToFront(frontImageView)
+                      backImageView.isHidden = true
+                  } else {
+                      bringSubviewToFront(backImageView)
+                      frontImageView.isHidden = true
+                  }
+              }
         
-        if(card.isFaceUp) {
-            imageView.image = UIImage(named: "america.jpg")
-            
-        }
+    }
+    
+    public func configureCell(country: Country) {
+            frontImageView.image = UIImage(named: country.path)
     }
     
 }
