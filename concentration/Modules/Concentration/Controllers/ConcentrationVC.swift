@@ -7,17 +7,17 @@
 
 import UIKit
 
-class ConcentrationVC: UIViewController, ConcentrationCollectionProviderDelegate {
-
+class ConcentrationVC: UIViewController {
     // MARK: - Dependencies
     private let viewModel: ConcentrationViewModel
-    private let concentrationView: ConcentrationView
+    
+    // MARK: - Stored Properties
+    private let concentrationView: ConcentrationView = ConcentrationView(frame: UIScreen.main.bounds)
     private let collectionViewProvider: ConcentrationCollectionProvider = ConcentrationCollectionProvider()
     
     // MARK: - Lifecycle
-    init(viewModel: ConcentrationViewModel, concentrationView: ConcentrationView = ConcentrationView(frame: UIScreen.main.bounds)) {
+    init(viewModel: ConcentrationViewModel) {
         self.viewModel = viewModel
-        self.concentrationView  =  concentrationView
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -31,41 +31,12 @@ class ConcentrationVC: UIViewController, ConcentrationCollectionProviderDelegate
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // called only once
-        collectionViewProvider.associatedCountries = viewModel.associatedCardCountries
         
         viewModel.delegate = self
         viewModel.startGame()
-        
-        configureBindables()
         configureCollectionViewDelegates()
     }
 }
-
-// MARK: - Reactive Behaviour
-extension ConcentrationVC {
-    private func configureBindables() {
-//        viewModel.viewState.bind(listener: { [weak self] (viewState: Viewstate) in
-//            guard let strongSelf = self else { return }
-//
-//            switch viewState {
-//            case .initial:
-//                break
-//            case .loading:
-//                break
-//            case .loaded:
-//                DispatchQueue.main.async {
-//                    strongSelf.collectionViewProvider.cards = strongSelf.viewModel.cards
-//                    strongSelf.concentrationView.collectionView.reloadData()
-//                }
-//
-//            case .error:
-//                break
-//            }
-//        })
-    }
-}
-
 
 // MARK: - UI Configurations
 extension ConcentrationVC {
@@ -77,16 +48,14 @@ extension ConcentrationVC {
     }
 }
 
-
 // MARK: - CollectionView Provider Delegates
-extension ConcentrationVC {
+extension ConcentrationVC: ConcentrationCollectionProviderDelegate {
     func didSelectCard(_ provider: ConcentrationCollectionProvider, withIndex index: Int) {
         viewModel.userTappedCard(ofIndex: index)
-
     }
 }
 
-
+// MARK: - Concentration Game Delegates
 extension ConcentrationVC: ConcentrationGameProtocol {
     func concentrationGameDidStart(_ game: ConcentrationViewModel) {
         collectionViewProvider.cards = viewModel.cards
@@ -96,23 +65,21 @@ extension ConcentrationVC: ConcentrationGameProtocol {
     
     func concentrationGame(_ game: ConcentrationViewModel, showCards cardIndices: [Int]) {
         for index in cardIndices {
-//                   guard let index = viewModel.indexForCard(card) else { continue }
             let cell = concentrationView.collectionView.cellForItem(at: IndexPath(item: index, section:0)) as! ConcentrationCollectionViewCell
-                   cell.showCard(true)
+            let card = viewModel.cards[index]
+            let country = viewModel.associatedCardCountries[card.identifier]
+            cell.showCard(true, with: UIImage(named: country?.path ?? "cardBack.png"))
         }
     }
     
     func concentrationGame(_ game: ConcentrationViewModel, hideCards cardIndices: [Int]) {
         for index in cardIndices {
-//                   guard let index = viewModel.indexForCard(card) else { continue }
             let cell = concentrationView.collectionView.cellForItem(at: IndexPath(item: index, section:0)) as! ConcentrationCollectionViewCell
-                   cell.showCard(false)
+            cell.showCard(false, with: UIImage(named: "cardBack.png"))
         }
     }
     
     func concentrationGameDidEnd(_ game: ConcentrationViewModel) {
         
     }
-    
-    
 }

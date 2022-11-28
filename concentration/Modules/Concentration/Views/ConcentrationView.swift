@@ -8,33 +8,33 @@
 import UIKit
 
 class ConcentrationView: UIView {
+    fileprivate let sectionInsets = UIEdgeInsets(top: 20.0, left: 20.0, bottom: 20.0, right: 20.0)
+    
     // MARK: - UI Properties
-    public var collectionView: UICollectionView = {
-        
-        // create a layout to be used
+    public lazy var collectionView: UICollectionView = {
         let layout: UICollectionViewFlowLayout = UICollectionViewFlowLayout()
-        // make sure that there is a slightly larger gap at the top of each row
-        layout.sectionInset = UIEdgeInsets(top: 1, left: 1, bottom: 1, right: 1)
-        // set minimum line spacing
-        layout.minimumLineSpacing = 1
-        // set minimum inter item spacing
-        layout.minimumInteritemSpacing = 1
-        // set a standard item size of 3 by 3
+        layout.sectionInset = sectionInsets
+//        layout.minimumLineSpacing = sectionInsets.left
+//        layout.minimumInteritemSpacing = sectionInsets.left
+        
+        let paddingSpace = Int(sectionInsets.left) * 4
+        let availableWidth = Int(UIScreen.main.bounds.width) - paddingSpace
+        let widthPerItem = availableWidth / 4
+        
         layout.itemSize = CGSize(
-            width: (UIScreen.main.bounds.width / 3) - 3,
-            height:(UIScreen.main.bounds.width / 3) - 3
-           )
-        // the layout scrolls vertically
+            width: widthPerItem,
+            height: widthPerItem
+        )
         layout.scrollDirection = .vertical
-        // set the frame and layout
+        
         let clnView = UICollectionView(
             frame: .zero,
             collectionViewLayout: layout
         )
-//        clnView.alwaysBounceVertical = true
+        //        clnView.alwaysBounceVertical = true
         clnView.translatesAutoresizingMaskIntoConstraints = false
         clnView.register(ConcentrationCollectionViewCell.self, forCellWithReuseIdentifier: ConcentrationCollectionViewCell.nameOfClass)
-
+        
         return clnView
     }()
     

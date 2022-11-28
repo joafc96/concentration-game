@@ -6,14 +6,20 @@
 //
 
 import XCTest
+import Foundation
 @testable import concentration
 
 final class concentrationTests: XCTestCase {
     
     var concenterationViewModel: ConcentrationViewModel!
+    let numberOfCards = 16
+    var numberOfCardPairs: Int {
+        return numberOfCards / 2
+    }
     
     override func setUpWithError() throws {
-        concenterationViewModel = ConcentrationViewModel(numberOfCardPairs: 6)
+        concenterationViewModel = ConcentrationViewModel(numberOfCardPairs: numberOfCardPairs, isShhuffled: false)
+        concenterationViewModel.startGame()
     }
     
     override func tearDownWithError() throws {
@@ -21,7 +27,7 @@ final class concentrationTests: XCTestCase {
     }
     
     func testCardGeneration() {
-        XCTAssert(concenterationViewModel.cards.count == 12)
+        XCTAssert(concenterationViewModel.cards.count == numberOfCards)
     }
     
     func testUserChoseInitialCard() {
@@ -46,9 +52,12 @@ final class concentrationTests: XCTestCase {
         XCTAssert(concenterationViewModel.cards[2].isMatched == false)
         
         // Is then faced down as they have different identifiers
-        XCTAssert(concenterationViewModel.cards[0].isFaceUp == false)
-        XCTAssert(concenterationViewModel.cards[2].isFaceUp == false)
-        
+        let delay = DispatchTime.now() + .milliseconds(400)
+        DispatchQueue.main.asyncAfter(deadline: delay, execute: { [weak self] in
+            XCTAssert(self?.concenterationViewModel.cards[0].isFaceUp == false)
+            XCTAssert(self?.concenterationViewModel.cards[2].isFaceUp == false)
+        })
+
         // updated back to nil to start new
         XCTAssert(concenterationViewModel.referenceIndex == nil)
     }

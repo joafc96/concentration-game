@@ -8,30 +8,28 @@
 import UIKit
 
 class ConcentrationCollectionViewCell: UICollectionViewCell {
-    
-    
-//    var cellIdentifier: UUID = UUID()
-    
-    private let frontImageView: UIImageView = {
-        let imgView = UIImageView()
-        imgView.translatesAutoresizingMaskIntoConstraints = false
-        imgView.layer.cornerRadius = 8
-        imgView.clipsToBounds = true
-        imgView.contentMode = .scaleAspectFill
-        
-        return imgView
-    }()
-    
-    private let backImageView: UIImageView = {
+    private let cardImageView: UIImageView = {
         let imgView = UIImageView()
         imgView.translatesAutoresizingMaskIntoConstraints = false
         imgView.layer.cornerRadius = 8
         imgView.clipsToBounds = true
         imgView.contentMode = .scaleAspectFill
         imgView.backgroundColor = .label
-        
+        imgView.image = UIImage(named: "cardBack.png")
+
         return imgView
     }()
+    
+    
+//    private lazy var cardButton: UIButton = {
+//        let btn = UIButton()
+//        btn.translatesAutoresizingMaskIntoConstraints = false
+//        btn.layer.cornerRadius = 8
+//        btn.layer.masksToBounds = true
+//        btn.backgroundColor = .label
+//        btn.setTitle("", for: .normal)
+//        return btn
+//    }()
     
     //MARK: - Lifecycle
     override init(frame: CGRect) {
@@ -46,55 +44,39 @@ class ConcentrationCollectionViewCell: UICollectionViewCell {
     
     //MARK: - UI Configurations
     private func configureSubViews() {
-        addSubview(backImageView)
-        addSubview(frontImageView)
-        
-        sendSubviewToBack(frontImageView)
+        addSubview(cardImageView)
+//        addSubview(cardButton)
     }
     
     private func configureConstraints() {
-        backImageView.fillInSuperView()
-        frontImageView.fillInSuperView()
-
+        cardImageView.fillInSuperView()
+//        cardButton.fillInSuperView()
     }
     
     override func prepareForReuse() {
         super.prepareForReuse()
     }
-    
-    public func showCard(_ show: Bool, animated: Bool = true) {
-        frontImageView.isHidden = false
-        backImageView.isHidden = false
-        if animated {
-                  if show {
-                      UIView.transition(
-                          from: backImageView,
-                          to: frontImageView,
-                          duration: 0.3,
-                          options: [.transitionFlipFromRight, .showHideTransitionViews],
-                          completion: nil)
-                  } else {
-                      UIView.transition(
-                          from: frontImageView,
-                          to: backImageView,
-                          duration: 0.3,
-                          options: [.transitionFlipFromRight, .showHideTransitionViews],
-                          completion:  nil)
-                  }
-              } else {
-                  if show {
-                      bringSubviewToFront(frontImageView)
-                      backImageView.isHidden = true
-                  } else {
-                      bringSubviewToFront(backImageView)
-                      frontImageView.isHidden = true
-                  }
-              }
         
+    public func showCard(_ show: Bool, with image: UIImage?) {
+        if show {
+            cardImageView.image = image
+//            cardButton.setTitle("😇", for: .normal)
+//            cardButton.backgroundColor = .systemGreen
+        
+            UIView.transition(with: cardImageView,
+                              duration: 0.4,
+                              options: .transitionFlipFromLeft,
+                              animations: nil,
+                              completion: nil)
+        } else {
+            cardImageView.image = image
+//            cardButton.backgroundColor = .label
+//            cardButton.setTitle("", for: .normal)
+            UIView.transition(with: cardImageView,
+                              duration: 0.4,
+                              options: .transitionFlipFromRight,
+                              animations: nil,
+                              completion: nil)
+        }
     }
-    
-    public func configureCell(country: Country) {
-            frontImageView.image = UIImage(named: country.path)
-    }
-    
 }
