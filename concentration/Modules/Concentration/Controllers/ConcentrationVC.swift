@@ -12,7 +12,7 @@ class ConcentrationVC: UIViewController {
     private var viewModel: ConcentrationViewModelProtocol
     
     // MARK: - Stored Properties
-    private let concentrationView: ConcentrationView = ConcentrationView(frame: UIScreen.main.bounds)
+    private let concentrationView: ConcentrationView = ConcentrationView()
     private let collectionViewProvider: ConcentrationCollectionProvider = ConcentrationCollectionProvider()
     
     // MARK: - Lifecycle
@@ -35,6 +35,7 @@ class ConcentrationVC: UIViewController {
         viewModel.delegate = self
         viewModel.startGame()
         configureCollectionViewDelegates()
+        configureNavBar()
     }
     
     deinit {
@@ -50,6 +51,11 @@ extension ConcentrationVC {
         concentrationView.collectionView.dataSource = collectionViewProvider
         concentrationView.collectionView.delegate = collectionViewProvider
     }
+    
+    private func configureNavBar() {
+        navigationController?.navigationBar.isTranslucent = true
+        navigationItem.title = "Match All"
+    }
 }
 
 // MARK: - CollectionView Provider Delegates
@@ -61,13 +67,19 @@ extension ConcentrationVC: ConcentrationCollectionProviderDelegate {
 
 // MARK: - Concentration Game Delegates
 extension ConcentrationVC: ConcentrationGameProtocol {
-    func concentrationGameDidStart(_ game: ConcentrationViewModel) {
+    func concentrationGameDidStart(_ viewModel: ConcentrationViewModel) {
         collectionViewProvider.cards = viewModel.cards
         collectionViewProvider.associatedCountries = viewModel.associatedCardCountries
         concentrationView.collectionView.reloadData()
     }
     
-    func concentrationGame(_ game: ConcentrationViewModel, showCards cardIndices: [Int]) {
+    func concentrationGameUpdateValues(_ viewModel: ConcentrationViewModel, flipCount: Int, currentScore: Int) {
+        concentrationView.flipCountLabel.text = "Flips: \(flipCount)"
+        concentrationView.currentScoreLabel.text = "Score: \(currentScore)"
+
+    }
+    
+    func concentrationGame(_ viewModel: ConcentrationViewModel, showCards cardIndices: [Int]) {
         for index in cardIndices {
             let cell = concentrationView.collectionView.cellForItem(at: IndexPath(item: index, section:0)) as! ConcentrationCollectionViewCell
             let card = viewModel.cards[index]
@@ -76,14 +88,14 @@ extension ConcentrationVC: ConcentrationGameProtocol {
         }
     }
     
-    func concentrationGame(_ game: ConcentrationViewModel, hideCards cardIndices: [Int]) {
+    func concentrationGame(_ viewModel: ConcentrationViewModel, hideCards cardIndices: [Int]) {
         for index in cardIndices {
             let cell = concentrationView.collectionView.cellForItem(at: IndexPath(item: index, section:0)) as! ConcentrationCollectionViewCell
             cell.showCard(false, with: UIImage(named: "cardBack.png"))
         }
     }
     
-    func concentrationGameDidEnd(_ game: ConcentrationViewModel) {
+    func concentrationGameDidEnd(_ viewModel: ConcentrationViewModel) {
         
     }
 }

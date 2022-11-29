@@ -16,6 +16,8 @@ class ConcentrationCollectionViewCell: UICollectionViewCell {
         imgView.contentMode = .scaleAspectFill
         imgView.backgroundColor = .label
         imgView.image = UIImage(named: "cardBack.png")
+        
+//        imgView.backgroundColor = .systemPurple
 
         return imgView
     }()

@@ -9,10 +9,11 @@ import Foundation
 
 // MARK: - Concentration Game Protocol
 protocol ConcentrationGameProtocol: AnyObject {
-    func concentrationGameDidStart(_ game: ConcentrationViewModel)
-    func concentrationGameDidEnd(_ game: ConcentrationViewModel)
-    func concentrationGame(_ game: ConcentrationViewModel, showCards cardIndices: [Int])
-    func concentrationGame(_ game: ConcentrationViewModel, hideCards cardIndices: [Int])
+    func concentrationGameDidStart(_ viewModel: ConcentrationViewModel)
+    func concentrationGameDidEnd(_ viewModel: ConcentrationViewModel)
+    func concentrationGameUpdateValues(_ viewModel: ConcentrationViewModel, flipCount: Int, currentScore: Int)
+    func concentrationGame(_ viewModel: ConcentrationViewModel, showCards cardIndices: [Int])
+    func concentrationGame(_ viewModel: ConcentrationViewModel, hideCards cardIndices: [Int])
 }
 
 // MARK: - Concentration ViewModel Protocol
@@ -107,11 +108,9 @@ extension ConcentrationViewModel {
         cards[currentIndex].isFaceUp = true
         cards[currentIndex].flipCount += 1
         flipCount += 1
-        delegate?.concentrationGame(self, showCards: [currentIndex])
         
-        print(currentScore)
-        print(flipCount)
-        print(cards)
+        delegate?.concentrationGame(self, showCards: [currentIndex])
+        delegate?.concentrationGameUpdateValues(self, flipCount: flipCount, currentScore: currentScore)
     }
     
     private func userTappedDifferentCard(currentIndex: Int, referenceIndex: Int) {
