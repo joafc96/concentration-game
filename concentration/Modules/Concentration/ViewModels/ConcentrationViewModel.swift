@@ -7,7 +7,7 @@
 
 import Foundation
 
-// MARK: - MemoryGameProtocol
+// MARK: - Concentration Game Protocol
 protocol ConcentrationGameProtocol: AnyObject {
     func concentrationGameDidStart(_ game: ConcentrationViewModel)
     func concentrationGameDidEnd(_ game: ConcentrationViewModel)
@@ -15,23 +15,39 @@ protocol ConcentrationGameProtocol: AnyObject {
     func concentrationGame(_ game: ConcentrationViewModel, hideCards cardIndices: [Int])
 }
 
-final class ConcentrationViewModel {
-    // MARK: - Stored Properties
-    var referenceIndex: Int?
-    var cards: [Card] = [Card]()
-    let numberOfCardPairs: Int
-    let isShuffled: Bool
+// MARK: - Concentration ViewModel Protocol
+protocol ConcentrationViewModelProtocol {
+    var cards: [Card] { get }
+    var flipCount: Int { get }
+    var currentScore: Int { get }
+    var associatedCardCountries: [Int: Country] { get }
+    var delegate: ConcentrationGameProtocol? { get set }
     
-    var countryChoices: [Country] = Country.allCases
-    var associatedCardCountries: [Int: Country] = [Int: Country]()
+    func startGame()
+    func userTappedCard(ofIndex currentIndex: Int)
+}
+
+final class ConcentrationViewModel: ConcentrationViewModelProtocol {
+    // MARK: - Stored Properties
+    private let numberOfCardPairs: Int
+    private let isShuffled: Bool
+    
+    private(set) var referenceIndex: Int?
+    private(set) var cards: [Card] = [Card]()
+    private(set) var flipCount: Int = 0
+    private(set) var currentScore: Int = 0
+
+    private var countryChoices: [Country] = Country.allCases
+    private(set) var associatedCardCountries: [Int: Country] = [Int: Country]()
     
     weak var delegate: ConcentrationGameProtocol?
     
     // MARK: - Initializers
-    init(numberOfCardPairs: Int = 12, isShhuffled: Bool = true) {
-        guard numberOfCardPairs % 2 == 0 else { fatalError("Need even number of card pairs to generate the playing cards.")}
+    init(numberOfCardPairs: Int = 12, isShuffled: Bool = true) {
+        assert(numberOfCardPairs > 0, "ConcentrationViewModel.init\(numberOfCardPairs): you must have at least one pair of cards")
+        assert (numberOfCardPairs % 2 == 0, "Need even number of card pairs to generate the playing cards.")
         self.numberOfCardPairs = numberOfCardPairs
-        self.isShuffled = isShhuffled
+        self.isShuffled = isShuffled
     }
     
     deinit {
@@ -86,8 +102,16 @@ extension ConcentrationViewModel {
             referenceIndex = currentIndex
         }
         // update the current card as faced up and show it
+        // update the corrresponding cards flip count
+        // update the total flipcount
         cards[currentIndex].isFaceUp = true
+        cards[currentIndex].flipCount += 1
+        flipCount += 1
         delegate?.concentrationGame(self, showCards: [currentIndex])
+        
+        print(currentScore)
+        print(flipCount)
+        print(cards)
     }
     
     private func userTappedDifferentCard(currentIndex: Int, referenceIndex: Int) {
@@ -97,17 +121,42 @@ extension ConcentrationViewModel {
             // update both the cards isMatched to true
             cards[currentIndex].isMatched = true
             cards[referenceIndex].isMatched = true
+            
+            //update the currentScore
+            incrementCurrentScore()
         } else {
+            // update the current score if any of the cards has been flipped twice or more
+            if (isFlipCountGreater(currentCard: cards[currentIndex], matchingcard: cards[referenceIndex])) {
+                decrementCurrentScore()
+            }
+        
             // First both the cards are true so user can view the image and after a delay id provided and are hidden
-            let delay = DispatchTime.now() + .milliseconds(400)
-            DispatchQueue.main.asyncAfter(deadline: delay) { [weak self] in
+            let delayTime = DispatchTime.now() +  Constants.cardDelayDuration
+            DispatchQueue.main.asyncAfter(deadline: delayTime) { [weak self] in
                 guard let strongSelf = self else { return }
+                // update both the cards to be hidden
                 strongSelf.cards[currentIndex].isFaceUp = false
                 strongSelf.cards[referenceIndex].isFaceUp = false
+                
                 strongSelf.delegate?.concentrationGame(strongSelf, hideCards: [currentIndex, referenceIndex])
             }
         }
         // update the previous card index to nil to start a new selection
         self.referenceIndex = nil
+    }
+    
+    private func incrementCurrentScore() {
+        currentScore += ScoreValues.correctMatch.rawValue
+    }
+    
+    private func decrementCurrentScore() {
+        currentScore -= ScoreValues.wrongMatch.rawValue
+    }
+    
+    private func isFlipCountGreater(currentCard: Card, matchingcard: Card) -> Bool {
+        if currentCard.flipCount > 1 || matchingcard.flipCount > 1 {
+            return true
+        }
+        return false
     }
 }

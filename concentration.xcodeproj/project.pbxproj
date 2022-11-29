@@ -17,6 +17,8 @@
 		0B4EF12A2933A2EC00FD1E88 /* ConcentrationCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B4EF1292933A2EC00FD1E88 /* ConcentrationCollectionViewCell.swift */; };
 		0B4EF12C2933AA6E00FD1E88 /* UIView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B4EF12B2933AA6E00FD1E88 /* UIView+Extensions.swift */; };
 		0B4EF12E2933AC4000FD1E88 /* CollectionView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B4EF12D2933AC4000FD1E88 /* CollectionView+Extensions.swift */; };
+		0B5E74D52935C5BF0046EFEC /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B5E74D42935C5BF0046EFEC /* Constants.swift */; };
+		0B5E74D72935C5E40046EFEC /* ScoreValues.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B5E74D62935C5E40046EFEC /* ScoreValues.swift */; };
 		0BA1C5A32932237700A66C15 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BA1C5A22932237700A66C15 /* AppDelegate.swift */; };
 		0BA1C5A52932237700A66C15 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BA1C5A42932237700A66C15 /* SceneDelegate.swift */; };
 		0BA1C5AC2932237800A66C15 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0BA1C5AB2932237800A66C15 /* Assets.xcassets */; };
@@ -49,6 +51,8 @@
 		0B4EF1292933A2EC00FD1E88 /* ConcentrationCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConcentrationCollectionViewCell.swift; sourceTree = "<group>"; };
 		0B4EF12B2933AA6E00FD1E88 /* UIView+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extensions.swift"; sourceTree = "<group>"; };
 		0B4EF12D2933AC4000FD1E88 /* CollectionView+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CollectionView+Extensions.swift"; sourceTree = "<group>"; };
+		0B5E74D42935C5BF0046EFEC /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		0B5E74D62935C5E40046EFEC /* ScoreValues.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoreValues.swift; sourceTree = "<group>"; };
 		0BA1C59F2932237700A66C15 /* concentration.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = concentration.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0BA1C5A22932237700A66C15 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0BA1C5A42932237700A66C15 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -94,6 +98,8 @@
 				0B383C3E29332C6E00F5D5A7 /* Observable.swift */,
 				0B383C4129332EEB00F5D5A7 /* ViewState.swift */,
 				0B4EF1202933893200FD1E88 /* Country.swift */,
+				0B5E74D42935C5BF0046EFEC /* Constants.swift */,
+				0B5E74D62935C5E40046EFEC /* ScoreValues.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -325,6 +331,8 @@
 				0B4EF12829339F1F00FD1E88 /* ConcentrationCollectionProvider.swift in Sources */,
 				0BA1C5C32932272200A66C15 /* Card.swift in Sources */,
 				0B4EF1212933893200FD1E88 /* Country.swift in Sources */,
+				0B5E74D52935C5BF0046EFEC /* Constants.swift in Sources */,
+				0B5E74D72935C5E40046EFEC /* ScoreValues.swift in Sources */,
 				0BA1C5C12932271400A66C15 /* ConcentrationViewModel.swift in Sources */,
 				0B383C3F29332C6E00F5D5A7 /* Observable.swift in Sources */,
 				0B4EF12629339E4900FD1E88 /* UIView+layout+Extensions.swift in Sources */,

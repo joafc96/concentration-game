@@ -11,6 +11,7 @@ struct Card: Equatable {
     let identifier: Int
     var isFaceUp: Bool = false
     var isMatched: Bool = false
+    var flipCount = 0
     
     static var identifierfactory = 0
     
@@ -30,6 +31,7 @@ struct Card: Equatable {
 
 extension Card: CustomStringConvertible {
     var description: String {
-        "\(identifier)\(isFaceUp)\(isMatched)"
+//        "\(identifier) was flipped \(flipCount) times and isMatched is \(isMatched)"
+        "\(flipCount) "
     }
 }

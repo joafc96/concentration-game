@@ -64,7 +64,7 @@ class ConcentrationCollectionViewCell: UICollectionViewCell {
 //            cardButton.backgroundColor = .systemGreen
         
             UIView.transition(with: cardImageView,
-                              duration: 0.4,
+                              duration: Constants.flipDelayDuration,
                               options: .transitionFlipFromLeft,
                               animations: nil,
                               completion: nil)
@@ -73,7 +73,7 @@ class ConcentrationCollectionViewCell: UICollectionViewCell {
 //            cardButton.backgroundColor = .label
 //            cardButton.setTitle("", for: .normal)
             UIView.transition(with: cardImageView,
-                              duration: 0.4,
+                              duration: Constants.flipDelayDuration,
                               options: .transitionFlipFromRight,
                               animations: nil,
                               completion: nil)

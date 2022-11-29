@@ -18,7 +18,7 @@ final class concentrationTests: XCTestCase {
     }
     
     override func setUpWithError() throws {
-        concenterationViewModel = ConcentrationViewModel(numberOfCardPairs: numberOfCardPairs, isShhuffled: false)
+        concenterationViewModel = ConcentrationViewModel(numberOfCardPairs: numberOfCardPairs, isShuffled: false)
         concenterationViewModel.startGame()
     }
     
@@ -52,8 +52,8 @@ final class concentrationTests: XCTestCase {
         XCTAssert(concenterationViewModel.cards[2].isMatched == false)
         
         // Is then faced down as they have different identifiers
-        let delay = DispatchTime.now() + .milliseconds(400)
-        DispatchQueue.main.asyncAfter(deadline: delay, execute: { [weak self] in
+        let delayTime = DispatchTime.now() +  Constants.cardDelayDuration
+        DispatchQueue.main.asyncAfter(deadline: delayTime, execute: { [weak self] in
             XCTAssert(self?.concenterationViewModel.cards[0].isFaceUp == false)
             XCTAssert(self?.concenterationViewModel.cards[2].isFaceUp == false)
         })

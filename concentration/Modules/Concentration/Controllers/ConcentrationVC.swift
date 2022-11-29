@@ -9,7 +9,7 @@ import UIKit
 
 class ConcentrationVC: UIViewController {
     // MARK: - Dependencies
-    private let viewModel: ConcentrationViewModel
+    private var viewModel: ConcentrationViewModelProtocol
     
     // MARK: - Stored Properties
     private let concentrationView: ConcentrationView = ConcentrationView(frame: UIScreen.main.bounds)
@@ -35,6 +35,10 @@ class ConcentrationVC: UIViewController {
         viewModel.delegate = self
         viewModel.startGame()
         configureCollectionViewDelegates()
+    }
+    
+    deinit {
+        print("ConcentrationVC deinit")
     }
 }
 
