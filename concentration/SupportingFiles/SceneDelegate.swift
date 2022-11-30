@@ -2,7 +2,7 @@
 //  SceneDelegate.swift
 //  concentration
 //
-//  Created by qbuser on 26/11/22.
+//  Created by joe on 26/11/22.
 //
 
 import UIKit
@@ -14,13 +14,12 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         guard let windowScene = (scene as? UIWindowScene) else { return }
         
         let vc = ConcentrationVC(viewModel: ConcentrationViewModel())
-        let nc = UINavigationController(rootViewController: vc)
-        nc.setViewControllers([vc], animated: false)
-
+//        let nc = UINavigationController(rootViewController: vc)
+//        nc.setViewControllers([vc], animated: false)
 
         window = UIWindow(frame: UIScreen.main.bounds)
         window?.windowScene = windowScene
-        window?.rootViewController = nc
+        window?.rootViewController = vc
         window?.makeKeyAndVisible()
     }
 

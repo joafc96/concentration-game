@@ -2,7 +2,7 @@
 //  ScoreValues.swift
 //  concentration
 //
-//  Created by qbuser on 29/11/22.
+//  Created by joe on 29/11/22.
 //
 
 import Foundation

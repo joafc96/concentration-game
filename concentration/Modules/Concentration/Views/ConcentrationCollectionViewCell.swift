@@ -2,36 +2,24 @@
 //  ConcentrationCollectionViewCell.swift
 //  concentration
 //
-//  Created by qbuser on 27/11/22.
+//  Created by joe on 27/11/22.
 //
 
 import UIKit
 
 class ConcentrationCollectionViewCell: UICollectionViewCell {
-    private let cardImageView: UIImageView = {
+    
+    let currentTheme = ThemeManager.shared.getCurrentTheme()
+
+    private lazy var cardImageView: UIImageView = {
         let imgView = UIImageView()
         imgView.translatesAutoresizingMaskIntoConstraints = false
         imgView.layer.cornerRadius = 8
         imgView.clipsToBounds = true
         imgView.contentMode = .scaleAspectFill
-        imgView.backgroundColor = .label
-        imgView.image = UIImage(named: "cardBack.png")
         
-//        imgView.backgroundColor = .systemPurple
-
         return imgView
     }()
-    
-    
-//    private lazy var cardButton: UIButton = {
-//        let btn = UIButton()
-//        btn.translatesAutoresizingMaskIntoConstraints = false
-//        btn.layer.cornerRadius = 8
-//        btn.layer.masksToBounds = true
-//        btn.backgroundColor = .label
-//        btn.setTitle("", for: .normal)
-//        return btn
-//    }()
     
     //MARK: - Lifecycle
     override init(frame: CGRect) {
@@ -47,38 +35,37 @@ class ConcentrationCollectionViewCell: UICollectionViewCell {
     //MARK: - UI Configurations
     private func configureSubViews() {
         addSubview(cardImageView)
-//        addSubview(cardButton)
     }
     
     private func configureConstraints() {
         cardImageView.fillInSuperView()
-//        cardButton.fillInSuperView()
     }
     
     override func prepareForReuse() {
         super.prepareForReuse()
     }
         
-    public func showCard(_ show: Bool, with image: UIImage?) {
+    func showCard(_ show: Bool, with image: UIImage?) {
         if show {
             cardImageView.image = image
-//            cardButton.setTitle("😇", for: .normal)
-//            cardButton.backgroundColor = .systemGreen
-        
             UIView.transition(with: cardImageView,
                               duration: Constants.flipDelayDuration,
                               options: .transitionFlipFromLeft,
                               animations: nil,
                               completion: nil)
         } else {
-            cardImageView.image = image
-//            cardButton.backgroundColor = .label
-//            cardButton.setTitle("", for: .normal)
+            cardImageView.image = nil
+            cardImageView.backgroundColor = currentTheme.accentColor
             UIView.transition(with: cardImageView,
                               duration: Constants.flipDelayDuration,
                               options: .transitionFlipFromRight,
                               animations: nil,
                               completion: nil)
         }
+    }
+    
+    func configureCell() {
+        cardImageView.image = nil
+        cardImageView.backgroundColor = currentTheme.accentColor
     }
 }

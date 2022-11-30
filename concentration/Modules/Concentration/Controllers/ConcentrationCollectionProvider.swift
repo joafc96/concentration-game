@@ -2,7 +2,7 @@
 //  ConcentrationCollectionProvider.swift
 //  concentration
 //
-//  Created by qbuser on 27/11/22.
+//  Created by joe on 27/11/22.
 //
 
 import UIKit
@@ -34,6 +34,7 @@ extension ConcentrationCollectionProvider: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = cardCell(with: collectionView, indexPath: indexPath)
+        cell.configureCell()
         return cell
     }
     

@@ -2,7 +2,7 @@
 //  AppDelegate.swift
 //  concentration
 //
-//  Created by qbuser on 26/11/22.
+//  Created by joe on 26/11/22.
 //
 
 import UIKit

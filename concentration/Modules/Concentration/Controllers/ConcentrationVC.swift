@@ -2,7 +2,7 @@
 //  ConcentrationVC.swift
 //  concentration
 //
-//  Created by qbuser on 26/11/22.
+//  Created by joe on 26/11/22.
 //
 
 import UIKit
@@ -14,6 +14,7 @@ class ConcentrationVC: UIViewController {
     // MARK: - Stored Properties
     private let concentrationView: ConcentrationView = ConcentrationView()
     private let collectionViewProvider: ConcentrationCollectionProvider = ConcentrationCollectionProvider()
+    
     
     // MARK: - Lifecycle
     init(viewModel: ConcentrationViewModel) {
@@ -31,6 +32,8 @@ class ConcentrationVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        concentrationView.newGameButton.addTarget(self, action: #selector(startNewGame(sender:)), for: .touchUpInside)
         
         viewModel.delegate = self
         viewModel.startGame()
@@ -58,6 +61,15 @@ extension ConcentrationVC {
     }
 }
 
+// MARK: - Target Actions
+extension ConcentrationVC {
+    @objc
+    func startNewGame(sender: UIButton) {
+        viewModel.restartGame()
+    }
+    
+}
+
 // MARK: - CollectionView Provider Delegates
 extension ConcentrationVC: ConcentrationCollectionProviderDelegate {
     func didSelectCard(_ provider: ConcentrationCollectionProvider, withIndex index: Int) {
@@ -73,10 +85,8 @@ extension ConcentrationVC: ConcentrationGameProtocol {
         concentrationView.collectionView.reloadData()
     }
     
-    func concentrationGameUpdateValues(_ viewModel: ConcentrationViewModel, flipCount: Int, currentScore: Int) {
-        concentrationView.flipCountLabel.text = "Flips: \(flipCount)"
-        concentrationView.currentScoreLabel.text = "Score: \(currentScore)"
-
+    func concentrationGameDidEnd(_ viewModel: ConcentrationViewModel) {
+        print("Game Ended")
     }
     
     func concentrationGame(_ viewModel: ConcentrationViewModel, showCards cardIndices: [Int]) {
@@ -95,7 +105,11 @@ extension ConcentrationVC: ConcentrationGameProtocol {
         }
     }
     
-    func concentrationGameDidEnd(_ viewModel: ConcentrationViewModel) {
-        
+    func concentrationGameUpdateValue(_ viewModel: ConcentrationViewModel, flipCount: Int) {
+        concentrationView.flipCountLabel.text = "Flips: \(flipCount)"
+    }
+    
+    func concentrationGameUpdateValue(_ viewModel: ConcentrationViewModel, currentScore: Int) {
+        concentrationView.currentScoreLabel.text = "Score: \(currentScore)"
     }
 }

@@ -2,7 +2,7 @@
 //  ConcentrationViewModel.swift
 //  concentration
 //
-//  Created by qbuser on 26/11/22.
+//  Created by joe on 26/11/22.
 //
 
 import Foundation
@@ -11,7 +11,8 @@ import Foundation
 protocol ConcentrationGameProtocol: AnyObject {
     func concentrationGameDidStart(_ viewModel: ConcentrationViewModel)
     func concentrationGameDidEnd(_ viewModel: ConcentrationViewModel)
-    func concentrationGameUpdateValues(_ viewModel: ConcentrationViewModel, flipCount: Int, currentScore: Int)
+    func concentrationGameUpdateValue(_ viewModel: ConcentrationViewModel, flipCount: Int)
+    func concentrationGameUpdateValue(_ viewModel: ConcentrationViewModel, currentScore: Int)
     func concentrationGame(_ viewModel: ConcentrationViewModel, showCards cardIndices: [Int])
     func concentrationGame(_ viewModel: ConcentrationViewModel, hideCards cardIndices: [Int])
 }
@@ -25,6 +26,7 @@ protocol ConcentrationViewModelProtocol {
     var delegate: ConcentrationGameProtocol? { get set }
     
     func startGame()
+    func restartGame()
     func userTappedCard(ofIndex currentIndex: Int)
 }
 
@@ -33,10 +35,20 @@ final class ConcentrationViewModel: ConcentrationViewModelProtocol {
     private let numberOfCardPairs: Int
     private let isShuffled: Bool
     
-    private(set) var referenceIndex: Int?
+    private var referenceIndex: Int?
     private(set) var cards: [Card] = [Card]()
-    private(set) var flipCount: Int = 0
-    private(set) var currentScore: Int = 0
+    
+    private(set) var flipCount: Int = 0 {
+        didSet {
+            delegate?.concentrationGameUpdateValue(self, flipCount: flipCount)
+        }
+    }
+    
+    private(set) var currentScore: Int = 0 {
+        didSet {
+            delegate?.concentrationGameUpdateValue(self, currentScore:  currentScore)
+        }
+    }
 
     private var countryChoices: [Country] = Country.allCases
     private(set) var associatedCardCountries: [Int: Country] = [Int: Country]()
@@ -44,9 +56,9 @@ final class ConcentrationViewModel: ConcentrationViewModelProtocol {
     weak var delegate: ConcentrationGameProtocol?
     
     // MARK: - Initializers
-    init(numberOfCardPairs: Int = 12, isShuffled: Bool = true) {
+    init(numberOfCardPairs: Int = 12, isShuffled: Bool = false) {
         assert(numberOfCardPairs > 0, "ConcentrationViewModel.init\(numberOfCardPairs): you must have at least one pair of cards")
-        assert (numberOfCardPairs % 2 == 0, "Need even number of card pairs to generate the playing cards.")
+        assert (numberOfCardPairs % 2 == 0, "ConcentrationViewModel.init\(numberOfCardPairs): you must have even number of card pairs to generate the playing cards.")
         self.numberOfCardPairs = numberOfCardPairs
         self.isShuffled = isShuffled
     }
@@ -58,10 +70,20 @@ final class ConcentrationViewModel: ConcentrationViewModelProtocol {
 
 // MARK: - Card Generation Methods
 extension ConcentrationViewModel {
-    public func startGame() {
+    func startGame() {
         cards = generateCards(for: numberOfCardPairs)
         assignCountries()
         delegate?.concentrationGameDidStart(self)
+    }
+    
+    func restartGame() {
+        cards = [Card]()
+        referenceIndex = nil
+        flipCount = 0
+        currentScore = 0
+        countryChoices = Country.allCases
+        associatedCardCountries = [Int: Country]()
+        startGame()
     }
     
     private func generateCards(for numberOfPairs: Int) -> [Card] {
@@ -77,16 +99,14 @@ extension ConcentrationViewModel {
     private func assignCountries() {
         for card in cards {
             guard associatedCardCountries[card.identifier] == nil else { continue }
-            if let randomIndex = countryChoices.randomIndex() {
-                associatedCardCountries[card.identifier] = countryChoices.remove(at: randomIndex)
-            }
+            associatedCardCountries[card.identifier] = countryChoices.remove(at: countryChoices.count.arc4random)
         }
     }
 }
 
 // MARK: - User Interaction Methods
 extension ConcentrationViewModel {
-    public func userTappedCard(ofIndex currentIndex: Int) {
+    func userTappedCard(ofIndex currentIndex: Int) {
         assert(cards.indices.contains(currentIndex), "Concentration.chooseCard(at index: \(currentIndex)): chosen index not in the cards")
         // User tapped an already matched card
         guard !cards[currentIndex].isMatched  else { return }
@@ -108,9 +128,12 @@ extension ConcentrationViewModel {
         cards[currentIndex].isFaceUp = true
         cards[currentIndex].flipCount += 1
         flipCount += 1
-        
+    
         delegate?.concentrationGame(self, showCards: [currentIndex])
-        delegate?.concentrationGameUpdateValues(self, flipCount: flipCount, currentScore: currentScore)
+        
+        if isGameCompleted() {
+            delegate?.concentrationGameDidEnd(self)
+        }
     }
     
     private func userTappedDifferentCard(currentIndex: Int, referenceIndex: Int) {
@@ -157,5 +180,14 @@ extension ConcentrationViewModel {
             return true
         }
         return false
+    }
+    
+    private func isGameCompleted() -> Bool {
+        for card in cards {
+            if !card.isMatched  {
+                return false
+            }
+        }
+        return true
     }
 }

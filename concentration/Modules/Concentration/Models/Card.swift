@@ -2,7 +2,7 @@
 //  Card.swift
 //  concentration
 //
-//  Created by qbuser on 26/11/22.
+//  Created by joe on 26/11/22.
 //
 
 import Foundation
@@ -13,8 +13,7 @@ struct Card: Equatable {
     var isMatched: Bool = false
     var flipCount = 0
     
-    static var identifierfactory = 0
-    
+    private static var identifierfactory = 0
     private static func getUniqueIdentifier() -> Int {
         identifierfactory += 1
         return identifierfactory
@@ -32,6 +31,6 @@ struct Card: Equatable {
 extension Card: CustomStringConvertible {
     var description: String {
 //        "\(identifier) was flipped \(flipCount) times and isMatched is \(isMatched)"
-        "\(flipCount) "
+        "\(flipCount)"
     }
 }

@@ -7,11 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		0B383C3F29332C6E00F5D5A7 /* Observable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B383C3E29332C6E00F5D5A7 /* Observable.swift */; };
-		0B383C4229332EEB00F5D5A7 /* ViewState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B383C4129332EEB00F5D5A7 /* ViewState.swift */; };
 		0B383C4A293346AB00F5D5A7 /* concentrationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B383C49293346AB00F5D5A7 /* concentrationTests.swift */; };
 		0B4EF1212933893200FD1E88 /* Country.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B4EF1202933893200FD1E88 /* Country.swift */; };
-		0B4EF1242933944400FD1E88 /* Array+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B4EF1232933944400FD1E88 /* Array+Extensions.swift */; };
 		0B4EF12629339E4900FD1E88 /* UIView+layout+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B4EF12529339E4900FD1E88 /* UIView+layout+Extensions.swift */; };
 		0B4EF12829339F1F00FD1E88 /* ConcentrationCollectionProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B4EF12729339F1F00FD1E88 /* ConcentrationCollectionProvider.swift */; };
 		0B4EF12A2933A2EC00FD1E88 /* ConcentrationCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B4EF1292933A2EC00FD1E88 /* ConcentrationCollectionViewCell.swift */; };
@@ -19,6 +16,8 @@
 		0B4EF12E2933AC4000FD1E88 /* CollectionView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B4EF12D2933AC4000FD1E88 /* CollectionView+Extensions.swift */; };
 		0B5E74D52935C5BF0046EFEC /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B5E74D42935C5BF0046EFEC /* Constants.swift */; };
 		0B5E74D72935C5E40046EFEC /* ScoreValues.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B5E74D62935C5E40046EFEC /* ScoreValues.swift */; };
+		0B9869DD29370EBE008794C2 /* Int+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B9869DC29370EBE008794C2 /* Int+Extensions.swift */; };
+		0B9869DF293721DF008794C2 /* UIColor+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B9869DE293721DF008794C2 /* UIColor+Extensions.swift */; };
 		0BA1C5A32932237700A66C15 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BA1C5A22932237700A66C15 /* AppDelegate.swift */; };
 		0BA1C5A52932237700A66C15 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BA1C5A42932237700A66C15 /* SceneDelegate.swift */; };
 		0BA1C5AC2932237800A66C15 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0BA1C5AB2932237800A66C15 /* Assets.xcassets */; };
@@ -29,6 +28,18 @@
 		0BA1C5C52932273500A66C15 /* ConcentrationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BA1C5C42932273500A66C15 /* ConcentrationView.swift */; };
 		0BB552932936033300271621 /* FontHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BB552922936033300271621 /* FontHelper.swift */; };
 		0BB6359729360FEB00E485A0 /* Palette.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BB6359629360FEB00E485A0 /* Palette.swift */; };
+		0BBECFA629377FCA0033F552 /* ThemeProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BBECFA529377FCA0033F552 /* ThemeProtocol.swift */; };
+		0BBECFA8293781B50033F552 /* NeptuneTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BBECFA7293781B50033F552 /* NeptuneTheme.swift */; };
+		0BBECFAA293782280033F552 /* ThemeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BBECFA9293782280033F552 /* ThemeManager.swift */; };
+		0BBECFAC293785160033F552 /* ThemeIdentifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BBECFAB293785160033F552 /* ThemeIdentifier.swift */; };
+		0BDAFD8A293788FE00C8D509 /* MarsTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BDAFD89293788FE00C8D509 /* MarsTheme.swift */; };
+		0BDAFD8C2937897900C8D509 /* EarthTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BDAFD8B2937897900C8D509 /* EarthTheme.swift */; };
+		0BDAFD902937AF1E00C8D509 /* NebulaTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BDAFD8F2937AF1E00C8D509 /* NebulaTheme.swift */; };
+		0BDAFD922937B30F00C8D509 /* VenusTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BDAFD912937B30F00C8D509 /* VenusTheme.swift */; };
+		0BDAFD952937B68700C8D509 /* MercuryTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BDAFD942937B68700C8D509 /* MercuryTheme.swift */; };
+		0BDAFD972937B86C00C8D509 /* JupiterTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BDAFD962937B86C00C8D509 /* JupiterTheme.swift */; };
+		0BDAFD992937BEB500C8D509 /* SoundEffect.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BDAFD982937BEB500C8D509 /* SoundEffect.swift */; };
+		0BDAFD9B2937CBA600C8D509 /* UranusTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BDAFD9A2937CBA600C8D509 /* UranusTheme.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -42,12 +53,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		0B383C3E29332C6E00F5D5A7 /* Observable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Observable.swift; sourceTree = "<group>"; };
-		0B383C4129332EEB00F5D5A7 /* ViewState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewState.swift; sourceTree = "<group>"; };
 		0B383C47293346AB00F5D5A7 /* concentrationTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = concentrationTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		0B383C49293346AB00F5D5A7 /* concentrationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = concentrationTests.swift; sourceTree = "<group>"; };
 		0B4EF1202933893200FD1E88 /* Country.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Country.swift; sourceTree = "<group>"; };
-		0B4EF1232933944400FD1E88 /* Array+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array+Extensions.swift"; sourceTree = "<group>"; };
 		0B4EF12529339E4900FD1E88 /* UIView+layout+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+layout+Extensions.swift"; sourceTree = "<group>"; };
 		0B4EF12729339F1F00FD1E88 /* ConcentrationCollectionProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConcentrationCollectionProvider.swift; sourceTree = "<group>"; };
 		0B4EF1292933A2EC00FD1E88 /* ConcentrationCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConcentrationCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -55,6 +63,8 @@
 		0B4EF12D2933AC4000FD1E88 /* CollectionView+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CollectionView+Extensions.swift"; sourceTree = "<group>"; };
 		0B5E74D42935C5BF0046EFEC /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		0B5E74D62935C5E40046EFEC /* ScoreValues.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoreValues.swift; sourceTree = "<group>"; };
+		0B9869DC29370EBE008794C2 /* Int+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Int+Extensions.swift"; sourceTree = "<group>"; };
+		0B9869DE293721DF008794C2 /* UIColor+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extensions.swift"; sourceTree = "<group>"; };
 		0BA1C59F2932237700A66C15 /* concentration.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = concentration.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0BA1C5A22932237700A66C15 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0BA1C5A42932237700A66C15 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -67,6 +77,18 @@
 		0BA1C5C42932273500A66C15 /* ConcentrationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConcentrationView.swift; sourceTree = "<group>"; };
 		0BB552922936033300271621 /* FontHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontHelper.swift; sourceTree = "<group>"; };
 		0BB6359629360FEB00E485A0 /* Palette.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Palette.swift; sourceTree = "<group>"; };
+		0BBECFA529377FCA0033F552 /* ThemeProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeProtocol.swift; sourceTree = "<group>"; };
+		0BBECFA7293781B50033F552 /* NeptuneTheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NeptuneTheme.swift; sourceTree = "<group>"; };
+		0BBECFA9293782280033F552 /* ThemeManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeManager.swift; sourceTree = "<group>"; };
+		0BBECFAB293785160033F552 /* ThemeIdentifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeIdentifier.swift; sourceTree = "<group>"; };
+		0BDAFD89293788FE00C8D509 /* MarsTheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarsTheme.swift; sourceTree = "<group>"; };
+		0BDAFD8B2937897900C8D509 /* EarthTheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EarthTheme.swift; sourceTree = "<group>"; };
+		0BDAFD8F2937AF1E00C8D509 /* NebulaTheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NebulaTheme.swift; sourceTree = "<group>"; };
+		0BDAFD912937B30F00C8D509 /* VenusTheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VenusTheme.swift; sourceTree = "<group>"; };
+		0BDAFD942937B68700C8D509 /* MercuryTheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MercuryTheme.swift; sourceTree = "<group>"; };
+		0BDAFD962937B86C00C8D509 /* JupiterTheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JupiterTheme.swift; sourceTree = "<group>"; };
+		0BDAFD982937BEB500C8D509 /* SoundEffect.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundEffect.swift; sourceTree = "<group>"; };
+		0BDAFD9A2937CBA600C8D509 /* UranusTheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UranusTheme.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -90,6 +112,7 @@
 		0B383C3D29332C5F00F5D5A7 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				0BBECFA429377FA00033F552 /* Themes */,
 				0B4EF1222933942900FD1E88 /* Extensions */,
 				0B383C4029332EC400F5D5A7 /* Helpers */,
 			);
@@ -99,13 +122,12 @@
 		0B383C4029332EC400F5D5A7 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
-				0B383C3E29332C6E00F5D5A7 /* Observable.swift */,
-				0B383C4129332EEB00F5D5A7 /* ViewState.swift */,
 				0B4EF1202933893200FD1E88 /* Country.swift */,
 				0B5E74D42935C5BF0046EFEC /* Constants.swift */,
 				0B5E74D62935C5E40046EFEC /* ScoreValues.swift */,
 				0BB552922936033300271621 /* FontHelper.swift */,
 				0BB6359629360FEB00E485A0 /* Palette.swift */,
+				0BDAFD982937BEB500C8D509 /* SoundEffect.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -121,10 +143,11 @@
 		0B4EF1222933942900FD1E88 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
-				0B4EF1232933944400FD1E88 /* Array+Extensions.swift */,
 				0B4EF12529339E4900FD1E88 /* UIView+layout+Extensions.swift */,
 				0B4EF12B2933AA6E00FD1E88 /* UIView+Extensions.swift */,
 				0B4EF12D2933AC4000FD1E88 /* CollectionView+Extensions.swift */,
+				0B9869DC29370EBE008794C2 /* Int+Extensions.swift */,
+				0B9869DE293721DF008794C2 /* UIColor+Extensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -220,6 +243,32 @@
 				0B4EF12729339F1F00FD1E88 /* ConcentrationCollectionProvider.swift */,
 			);
 			path = Controllers;
+			sourceTree = "<group>";
+		};
+		0BBECFA429377FA00033F552 /* Themes */ = {
+			isa = PBXGroup;
+			children = (
+				0BDAFD932937B51300C8D509 /* ThemeClasses */,
+				0BBECFA529377FCA0033F552 /* ThemeProtocol.swift */,
+				0BBECFA9293782280033F552 /* ThemeManager.swift */,
+				0BBECFAB293785160033F552 /* ThemeIdentifier.swift */,
+			);
+			path = Themes;
+			sourceTree = "<group>";
+		};
+		0BDAFD932937B51300C8D509 /* ThemeClasses */ = {
+			isa = PBXGroup;
+			children = (
+				0BDAFD942937B68700C8D509 /* MercuryTheme.swift */,
+				0BDAFD912937B30F00C8D509 /* VenusTheme.swift */,
+				0BDAFD8B2937897900C8D509 /* EarthTheme.swift */,
+				0BDAFD89293788FE00C8D509 /* MarsTheme.swift */,
+				0BDAFD962937B86C00C8D509 /* JupiterTheme.swift */,
+				0BBECFA7293781B50033F552 /* NeptuneTheme.swift */,
+				0BDAFD8F2937AF1E00C8D509 /* NebulaTheme.swift */,
+				0BDAFD9A2937CBA600C8D509 /* UranusTheme.swift */,
+			);
+			path = ThemeClasses;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -330,24 +379,35 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0BBECFAA293782280033F552 /* ThemeManager.swift in Sources */,
 				0B4EF12C2933AA6E00FD1E88 /* UIView+Extensions.swift in Sources */,
+				0BDAFD8C2937897900C8D509 /* EarthTheme.swift in Sources */,
+				0BDAFD992937BEB500C8D509 /* SoundEffect.swift in Sources */,
 				0BA1C5BF2932270000A66C15 /* ConcentrationVC.swift in Sources */,
-				0B4EF1242933944400FD1E88 /* Array+Extensions.swift in Sources */,
 				0B4EF12A2933A2EC00FD1E88 /* ConcentrationCollectionViewCell.swift in Sources */,
+				0BBECFA629377FCA0033F552 /* ThemeProtocol.swift in Sources */,
+				0BDAFD902937AF1E00C8D509 /* NebulaTheme.swift in Sources */,
 				0B4EF12829339F1F00FD1E88 /* ConcentrationCollectionProvider.swift in Sources */,
+				0BDAFD8A293788FE00C8D509 /* MarsTheme.swift in Sources */,
 				0BA1C5C32932272200A66C15 /* Card.swift in Sources */,
 				0B4EF1212933893200FD1E88 /* Country.swift in Sources */,
+				0BDAFD972937B86C00C8D509 /* JupiterTheme.swift in Sources */,
 				0B5E74D52935C5BF0046EFEC /* Constants.swift in Sources */,
 				0B5E74D72935C5E40046EFEC /* ScoreValues.swift in Sources */,
+				0BDAFD922937B30F00C8D509 /* VenusTheme.swift in Sources */,
+				0B9869DD29370EBE008794C2 /* Int+Extensions.swift in Sources */,
 				0BA1C5C12932271400A66C15 /* ConcentrationViewModel.swift in Sources */,
-				0B383C3F29332C6E00F5D5A7 /* Observable.swift in Sources */,
+				0BDAFD952937B68700C8D509 /* MercuryTheme.swift in Sources */,
+				0BDAFD9B2937CBA600C8D509 /* UranusTheme.swift in Sources */,
+				0B9869DF293721DF008794C2 /* UIColor+Extensions.swift in Sources */,
 				0BB6359729360FEB00E485A0 /* Palette.swift in Sources */,
 				0B4EF12629339E4900FD1E88 /* UIView+layout+Extensions.swift in Sources */,
 				0BB552932936033300271621 /* FontHelper.swift in Sources */,
 				0BA1C5A32932237700A66C15 /* AppDelegate.swift in Sources */,
 				0BA1C5A52932237700A66C15 /* SceneDelegate.swift in Sources */,
-				0B383C4229332EEB00F5D5A7 /* ViewState.swift in Sources */,
 				0B4EF12E2933AC4000FD1E88 /* CollectionView+Extensions.swift in Sources */,
+				0BBECFA8293781B50033F552 /* NeptuneTheme.swift in Sources */,
+				0BBECFAC293785160033F552 /* ThemeIdentifier.swift in Sources */,
 				0BA1C5C52932273500A66C15 /* ConcentrationView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -534,7 +594,7 @@
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen.storyboard;
 				INFOPLIST_KEY_UIMainStoryboardFile = "";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -561,7 +621,7 @@
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen.storyboard;
 				INFOPLIST_KEY_UIMainStoryboardFile = "";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
