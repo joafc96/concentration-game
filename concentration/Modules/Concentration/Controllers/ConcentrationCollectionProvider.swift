@@ -34,7 +34,7 @@ extension ConcentrationCollectionProvider: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = cardCell(with: collectionView, indexPath: indexPath)
-        cell.configureCell()
+        cell.configureCell(of: indexPath)
         return cell
     }
     

@@ -56,7 +56,7 @@ final class ConcentrationViewModel: ConcentrationViewModelProtocol {
     weak var delegate: ConcentrationGameProtocol?
     
     // MARK: - Initializers
-    init(numberOfCardPairs: Int = 12, isShuffled: Bool = false) {
+    init(numberOfCardPairs: Int = 12, isShuffled: Bool = true) {
         assert(numberOfCardPairs > 0, "ConcentrationViewModel.init\(numberOfCardPairs): you must have at least one pair of cards")
         assert (numberOfCardPairs % 2 == 0, "ConcentrationViewModel.init\(numberOfCardPairs): you must have even number of card pairs to generate the playing cards.")
         self.numberOfCardPairs = numberOfCardPairs
@@ -81,7 +81,7 @@ extension ConcentrationViewModel {
         referenceIndex = nil
         flipCount = 0
         currentScore = 0
-        emojiChoices = Emojicategory.symbol.getEmojis()
+        emojiChoices = Emojicategory.flag.getEmojis()
         associatedCardEmojiDictionary = [Int: String]()
         startGame()
     }

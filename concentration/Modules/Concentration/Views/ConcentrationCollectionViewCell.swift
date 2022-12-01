@@ -40,19 +40,24 @@ class ConcentrationCollectionViewCell: UICollectionViewCell {
     override func prepareForReuse() {
         super.prepareForReuse()
     }
+    
+    func configureCell(of indexPath:IndexPath) {
+        configureCardFront()
+        cardView.alpha = 0
+        let duration = Double(indexPath.row) * 0.1
+        cardView.fadeIn(with: duration)
+    }
         
     func showCard(_ show: Bool, with emoji: String?) {
         if show {
-            cardView.emojiLabel.text = emoji
-            cardView.backgroundColor = currentTheme.secondaryColor
+            configureCardBack(with: emoji)
             UIView.transition(with: cardView,
                               duration: Constants.flipDelayDuration,
                               options: .transitionFlipFromLeft,
                               animations: nil,
                               completion: nil)
         } else {
-            cardView.emojiLabel.text = nil
-            cardView.backgroundColor = currentTheme.accentColor
+            configureCardFront()
             UIView.transition(with: cardView,
                               duration: Constants.flipDelayDuration,
                               options: .transitionFlipFromRight,
@@ -61,8 +66,13 @@ class ConcentrationCollectionViewCell: UICollectionViewCell {
         }
     }
     
-    func configureCell() {
-        cardView.backgroundColor = currentTheme.accentColor
+    private func configureCardBack(with emoji: String?) {
+        cardView.emojiLabel.text = emoji
+        cardView.backgroundColor = currentTheme.secondaryColor
+    }
+    
+    private func configureCardFront() {
         cardView.emojiLabel.text = nil
+        cardView.backgroundColor = currentTheme.accentColor
     }
 }

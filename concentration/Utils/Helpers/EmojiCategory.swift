@@ -7,7 +7,6 @@
 
 import Foundation
 
-
 enum Emojicategory {
     case smiley
     case animal

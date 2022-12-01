@@ -2,7 +2,7 @@
 //  CardView.swift
 //  concentration
 //
-//  Created by qbuser on 01/12/22.
+//  Created by joe on 01/12/22.
 //
 
 import UIKit

@@ -87,7 +87,7 @@ class ConcentrationView: UIView {
 //         }
 //      configuration.cornerStyle = .medium
         configuration.background.cornerRadius = 8
-//        configuration.buttonSize = .large
+//     configuration.buttonSize = .large
         
         let btn = UIButton()
         btn.translatesAutoresizingMaskIntoConstraints = false
@@ -147,10 +147,8 @@ class ConcentrationView: UIView {
         
         let clnViewConstraints = [
             // Vertical
-            //          collectionView.topAnchor.constraint(equalTo: labelStackView.bottomAnchor, constant: 16),
             collectionView.heightAnchor.constraint(equalTo: heightAnchor, multiplier: 0.7),
             collectionView.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 16),
-//            collectionView.bottomAnchor.constraint(equalTo: newGameButton.topAnchor, constant: -16),
             
             // Horizontal
             collectionView.leadingAnchor.constraint(equalTo:  leadingAnchor),
@@ -170,6 +168,5 @@ class ConcentrationView: UIView {
         NSLayoutConstraint.activate(lblStkViewConstraints)
         NSLayoutConstraint.activate(clnViewConstraints)
         NSLayoutConstraint.activate(newGameBtnConstraints)
-        
     }
 }
