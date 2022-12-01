@@ -11,14 +11,10 @@ class ConcentrationCollectionViewCell: UICollectionViewCell {
     
     let currentTheme = ThemeManager.shared.getCurrentTheme()
 
-    private lazy var cardImageView: UIImageView = {
-        let imgView = UIImageView()
-        imgView.translatesAutoresizingMaskIntoConstraints = false
-        imgView.layer.cornerRadius = 8
-        imgView.clipsToBounds = true
-        imgView.contentMode = .scaleAspectFill
-        
-        return imgView
+    private lazy var cardView: CardView = {
+        let cardView = CardView()
+                
+        return cardView
     }()
     
     //MARK: - Lifecycle
@@ -34,29 +30,30 @@ class ConcentrationCollectionViewCell: UICollectionViewCell {
     
     //MARK: - UI Configurations
     private func configureSubViews() {
-        addSubview(cardImageView)
+        addSubview(cardView)
     }
     
     private func configureConstraints() {
-        cardImageView.fillInSuperView()
+        cardView.fillInSuperView()
     }
     
     override func prepareForReuse() {
         super.prepareForReuse()
     }
         
-    func showCard(_ show: Bool, with image: UIImage?) {
+    func showCard(_ show: Bool, with emoji: String?) {
         if show {
-            cardImageView.image = image
-            UIView.transition(with: cardImageView,
+            cardView.emojiLabel.text = emoji
+            cardView.backgroundColor = currentTheme.secondaryColor
+            UIView.transition(with: cardView,
                               duration: Constants.flipDelayDuration,
                               options: .transitionFlipFromLeft,
                               animations: nil,
                               completion: nil)
         } else {
-            cardImageView.image = nil
-            cardImageView.backgroundColor = currentTheme.accentColor
-            UIView.transition(with: cardImageView,
+            cardView.emojiLabel.text = nil
+            cardView.backgroundColor = currentTheme.accentColor
+            UIView.transition(with: cardView,
                               duration: Constants.flipDelayDuration,
                               options: .transitionFlipFromRight,
                               animations: nil,
@@ -65,7 +62,7 @@ class ConcentrationCollectionViewCell: UICollectionViewCell {
     }
     
     func configureCell() {
-        cardImageView.image = nil
-        cardImageView.backgroundColor = currentTheme.accentColor
+        cardView.backgroundColor = currentTheme.accentColor
+        cardView.emojiLabel.text = nil
     }
 }

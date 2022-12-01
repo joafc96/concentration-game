@@ -67,7 +67,6 @@ extension ConcentrationVC {
     func startNewGame(sender: UIButton) {
         viewModel.restartGame()
     }
-    
 }
 
 // MARK: - CollectionView Provider Delegates
@@ -81,27 +80,27 @@ extension ConcentrationVC: ConcentrationCollectionProviderDelegate {
 extension ConcentrationVC: ConcentrationGameProtocol {
     func concentrationGameDidStart(_ viewModel: ConcentrationViewModel) {
         collectionViewProvider.cards = viewModel.cards
-        collectionViewProvider.associatedCountries = viewModel.associatedCardCountries
+        collectionViewProvider.associatedEmjois = viewModel.associatedCardEmojiDictionary
         concentrationView.collectionView.reloadData()
     }
     
     func concentrationGameDidEnd(_ viewModel: ConcentrationViewModel) {
-        print("Game Ended")
+        print("Game Over")
     }
     
     func concentrationGame(_ viewModel: ConcentrationViewModel, showCards cardIndices: [Int]) {
         for index in cardIndices {
             let cell = concentrationView.collectionView.cellForItem(at: IndexPath(item: index, section:0)) as! ConcentrationCollectionViewCell
             let card = viewModel.cards[index]
-            let country = viewModel.associatedCardCountries[card.identifier]
-            cell.showCard(true, with: UIImage(named: country?.path ?? "cardBack.png"))
+            let emoji = viewModel.associatedCardEmojiDictionary[card.identifier]
+            cell.showCard(true, with: emoji ?? "❓")
         }
     }
     
     func concentrationGame(_ viewModel: ConcentrationViewModel, hideCards cardIndices: [Int]) {
         for index in cardIndices {
             let cell = concentrationView.collectionView.cellForItem(at: IndexPath(item: index, section:0)) as! ConcentrationCollectionViewCell
-            cell.showCard(false, with: UIImage(named: "cardBack.png"))
+            cell.showCard(false, with: nil)
         }
     }
     

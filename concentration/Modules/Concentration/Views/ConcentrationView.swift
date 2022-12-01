@@ -46,7 +46,6 @@ class ConcentrationView: UIView {
         lbl.textColor = currentTheme.accentColor
         lbl.font = FontHelper.Default.extraLargeRegular
         lbl.textAlignment = .left
-        lbl.numberOfLines = 3
         lbl.text = "Flips: 0"
         //lbl.setContentHuggingPriority(.defaultHigh, for: .vertical)
         
@@ -59,7 +58,6 @@ class ConcentrationView: UIView {
         lbl.textColor = currentTheme.accentColor
         lbl.font = FontHelper.Default.extraLargeRegular
         lbl.textAlignment = .left
-        lbl.numberOfLines = 3
         lbl.text = "Score: 0"
         //lbl.setContentHuggingPriority(.defaultHigh, for: .vertical)
         
@@ -72,7 +70,7 @@ class ConcentrationView: UIView {
         stackView.axis = .horizontal
         stackView.distribution = .equalSpacing
         stackView.alignment = .center
-        //        stackView.backgroundColor = .blue
+//      stackView.backgroundColor = .blue
         
         return stackView
     }()
@@ -82,13 +80,22 @@ class ConcentrationView: UIView {
         configuration.contentInsets = .init(top: 8, leading: 16, bottom: 8, trailing: 16)
         configuration.baseForegroundColor = currentTheme.accentColor
         configuration.baseBackgroundColor = currentTheme.secondaryColor
-        configuration.cornerStyle = .medium
-//      configuration.background.cornerRadius = 8
-//      configuration.buttonSize = .large
-        configuration.title = "New Game"
+//        configuration.titleTextAttributesTransformer = UIConfigurationTextAttributesTransformer { incoming in
+//          var outgoing = incoming
+//          outgoing.font = FontHelper.Default.largeRegular
+//          return outgoing
+//         }
+//      configuration.cornerStyle = .medium
+        configuration.background.cornerRadius = 8
+//        configuration.buttonSize = .large
+        
         let btn = UIButton()
         btn.translatesAutoresizingMaskIntoConstraints = false
+        btn.setTitle("NEW GAME", for: .normal)
+        btn.layer.cornerRadius = 8
         btn.configuration = configuration
+//        btn.titleLabel?.font = FontHelper.Default.largeRegular
+//        btn.titleLabel?.adjustsFontSizeToFitWidth = true
         return btn
     }()
     
@@ -131,8 +138,7 @@ class ConcentrationView: UIView {
     private func configureConstraints() {
         let lblStkViewConstraints = [
             // Vertical
-            //            labelStackView.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 64),
-            labelStackView.bottomAnchor.constraint(equalTo: collectionView.topAnchor, constant: -16),
+            labelStackView.topAnchor.constraint(equalTo: collectionView.bottomAnchor),
             
             // Horizontal
             labelStackView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16),
@@ -143,7 +149,8 @@ class ConcentrationView: UIView {
             // Vertical
             //          collectionView.topAnchor.constraint(equalTo: labelStackView.bottomAnchor, constant: 16),
             collectionView.heightAnchor.constraint(equalTo: heightAnchor, multiplier: 0.7),
-            collectionView.bottomAnchor.constraint(equalTo: newGameButton.topAnchor, constant: -16),
+            collectionView.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 16),
+//            collectionView.bottomAnchor.constraint(equalTo: newGameButton.topAnchor, constant: -16),
             
             // Horizontal
             collectionView.leadingAnchor.constraint(equalTo:  leadingAnchor),

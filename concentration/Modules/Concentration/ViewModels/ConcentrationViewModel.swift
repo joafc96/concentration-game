@@ -22,7 +22,7 @@ protocol ConcentrationViewModelProtocol {
     var cards: [Card] { get }
     var flipCount: Int { get }
     var currentScore: Int { get }
-    var associatedCardCountries: [Int: Country] { get }
+    var associatedCardEmojiDictionary: [Int: String] { get }
     var delegate: ConcentrationGameProtocol? { get set }
     
     func startGame()
@@ -50,8 +50,8 @@ final class ConcentrationViewModel: ConcentrationViewModelProtocol {
         }
     }
 
-    private var countryChoices: [Country] = Country.allCases
-    private(set) var associatedCardCountries: [Int: Country] = [Int: Country]()
+    private var emojiChoices: [String] = Emojicategory.flag.getEmojis()
+    private(set) var associatedCardEmojiDictionary: [Int: String] = [Int: String]()
     
     weak var delegate: ConcentrationGameProtocol?
     
@@ -72,7 +72,7 @@ final class ConcentrationViewModel: ConcentrationViewModelProtocol {
 extension ConcentrationViewModel {
     func startGame() {
         cards = generateCards(for: numberOfCardPairs)
-        assignCountries()
+        assignEmojis()
         delegate?.concentrationGameDidStart(self)
     }
     
@@ -81,8 +81,8 @@ extension ConcentrationViewModel {
         referenceIndex = nil
         flipCount = 0
         currentScore = 0
-        countryChoices = Country.allCases
-        associatedCardCountries = [Int: Country]()
+        emojiChoices = Emojicategory.symbol.getEmojis()
+        associatedCardEmojiDictionary = [Int: String]()
         startGame()
     }
     
@@ -96,10 +96,10 @@ extension ConcentrationViewModel {
         return totalCards
     }
     
-    private func assignCountries() {
+    private func assignEmojis() {
         for card in cards {
-            guard associatedCardCountries[card.identifier] == nil else { continue }
-            associatedCardCountries[card.identifier] = countryChoices.remove(at: countryChoices.count.arc4random)
+            guard associatedCardEmojiDictionary[card.identifier] == nil else { continue }
+            associatedCardEmojiDictionary[card.identifier] = emojiChoices.remove(at: emojiChoices.count.arc4random)
         }
     }
 }

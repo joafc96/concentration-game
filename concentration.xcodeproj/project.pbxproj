@@ -28,6 +28,8 @@
 		0BA1C5C52932273500A66C15 /* ConcentrationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BA1C5C42932273500A66C15 /* ConcentrationView.swift */; };
 		0BB552932936033300271621 /* FontHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BB552922936033300271621 /* FontHelper.swift */; };
 		0BB6359729360FEB00E485A0 /* Palette.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BB6359629360FEB00E485A0 /* Palette.swift */; };
+		0BB7C525293882950044D653 /* EmojiCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BB7C524293882950044D653 /* EmojiCategory.swift */; };
+		0BB7C527293889810044D653 /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BB7C526293889810044D653 /* CardView.swift */; };
 		0BBECFA629377FCA0033F552 /* ThemeProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BBECFA529377FCA0033F552 /* ThemeProtocol.swift */; };
 		0BBECFA8293781B50033F552 /* NeptuneTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BBECFA7293781B50033F552 /* NeptuneTheme.swift */; };
 		0BBECFAA293782280033F552 /* ThemeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BBECFA9293782280033F552 /* ThemeManager.swift */; };
@@ -77,6 +79,8 @@
 		0BA1C5C42932273500A66C15 /* ConcentrationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConcentrationView.swift; sourceTree = "<group>"; };
 		0BB552922936033300271621 /* FontHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontHelper.swift; sourceTree = "<group>"; };
 		0BB6359629360FEB00E485A0 /* Palette.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Palette.swift; sourceTree = "<group>"; };
+		0BB7C524293882950044D653 /* EmojiCategory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmojiCategory.swift; sourceTree = "<group>"; };
+		0BB7C526293889810044D653 /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
 		0BBECFA529377FCA0033F552 /* ThemeProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeProtocol.swift; sourceTree = "<group>"; };
 		0BBECFA7293781B50033F552 /* NeptuneTheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NeptuneTheme.swift; sourceTree = "<group>"; };
 		0BBECFA9293782280033F552 /* ThemeManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeManager.swift; sourceTree = "<group>"; };
@@ -128,6 +132,7 @@
 				0BB552922936033300271621 /* FontHelper.swift */,
 				0BB6359629360FEB00E485A0 /* Palette.swift */,
 				0BDAFD982937BEB500C8D509 /* SoundEffect.swift */,
+				0BB7C524293882950044D653 /* EmojiCategory.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -216,6 +221,7 @@
 			children = (
 				0BA1C5C42932273500A66C15 /* ConcentrationView.swift */,
 				0B4EF1292933A2EC00FD1E88 /* ConcentrationCollectionViewCell.swift */,
+				0BB7C526293889810044D653 /* CardView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -387,6 +393,7 @@
 				0B4EF12A2933A2EC00FD1E88 /* ConcentrationCollectionViewCell.swift in Sources */,
 				0BBECFA629377FCA0033F552 /* ThemeProtocol.swift in Sources */,
 				0BDAFD902937AF1E00C8D509 /* NebulaTheme.swift in Sources */,
+				0BB7C525293882950044D653 /* EmojiCategory.swift in Sources */,
 				0B4EF12829339F1F00FD1E88 /* ConcentrationCollectionProvider.swift in Sources */,
 				0BDAFD8A293788FE00C8D509 /* MarsTheme.swift in Sources */,
 				0BA1C5C32932272200A66C15 /* Card.swift in Sources */,
@@ -408,6 +415,7 @@
 				0B4EF12E2933AC4000FD1E88 /* CollectionView+Extensions.swift in Sources */,
 				0BBECFA8293781B50033F552 /* NeptuneTheme.swift in Sources */,
 				0BBECFAC293785160033F552 /* ThemeIdentifier.swift in Sources */,
+				0BB7C527293889810044D653 /* CardView.swift in Sources */,
 				0BA1C5C52932273500A66C15 /* ConcentrationView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
