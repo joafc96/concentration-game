@@ -80,7 +80,7 @@ extension ConcentrationVC: ConcentrationCollectionProviderDelegate {
 extension ConcentrationVC: ConcentrationGameProtocol {
     func concentrationGameDidStart(_ viewModel: ConcentrationViewModel) {
         collectionViewProvider.cards = viewModel.cards
-        collectionViewProvider.associatedEmjois = viewModel.associatedCardEmojiDictionary
+        collectionViewProvider.associatedEmojiss = viewModel.associatedCardEmojiDictionary
         concentrationView.collectionView.reloadData()
     }
     
@@ -92,7 +92,7 @@ extension ConcentrationVC: ConcentrationGameProtocol {
         for index in cardIndices {
             let cell = concentrationView.collectionView.cellForItem(at: IndexPath(item: index, section:0)) as! ConcentrationCollectionViewCell
             let card = viewModel.cards[index]
-            let emoji = viewModel.associatedCardEmojiDictionary[card.identifier]
+            let emoji = viewModel.associatedCardEmojiDictionary[card]
             cell.showCard(true, with: emoji ?? "❓")
         }
     }

@@ -22,7 +22,7 @@ protocol ConcentrationViewModelProtocol {
     var cards: [Card] { get }
     var flipCount: Int { get }
     var currentScore: Int { get }
-    var associatedCardEmojiDictionary: [Int: String] { get }
+    var associatedCardEmojiDictionary: [Card: String] { get }
     var delegate: ConcentrationGameProtocol? { get set }
     
     func startGame()
@@ -51,7 +51,7 @@ final class ConcentrationViewModel: ConcentrationViewModelProtocol {
     }
 
     private var emojiChoices: [String] = Emojicategory.flag.getEmojis()
-    private(set) var associatedCardEmojiDictionary: [Int: String] = [Int: String]()
+    private(set) var associatedCardEmojiDictionary: [Card: String] = [Card: String]()
     
     weak var delegate: ConcentrationGameProtocol?
     
@@ -74,6 +74,8 @@ extension ConcentrationViewModel {
         cards = generateCards(for: numberOfCardPairs)
         assignEmojis()
         delegate?.concentrationGameDidStart(self)
+        
+        print(associatedCardEmojiDictionary)
     }
     
     func restartGame() {
@@ -82,7 +84,7 @@ extension ConcentrationViewModel {
         flipCount = 0
         currentScore = 0
         emojiChoices = Emojicategory.flag.getEmojis()
-        associatedCardEmojiDictionary = [Int: String]()
+        associatedCardEmojiDictionary = [Card: String]()
         startGame()
     }
     
@@ -97,9 +99,13 @@ extension ConcentrationViewModel {
     }
     
     private func assignEmojis() {
+        /*
+         Assigns a unique value to the unique cards, the remove method removes the value from the list
+         and returns the removed value.
+         */
         for card in cards {
-            guard associatedCardEmojiDictionary[card.identifier] == nil else { continue }
-            associatedCardEmojiDictionary[card.identifier] = emojiChoices.remove(at: emojiChoices.count.arc4random)
+            guard associatedCardEmojiDictionary[card] == nil else { continue }
+            associatedCardEmojiDictionary[card] = emojiChoices.remove(at: emojiChoices.count.arc4random)
         }
     }
 }

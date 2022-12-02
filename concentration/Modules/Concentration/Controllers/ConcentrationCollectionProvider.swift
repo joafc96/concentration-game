@@ -13,7 +13,7 @@ protocol ConcentrationCollectionProviderDelegate: AnyObject {
 
 final class ConcentrationCollectionProvider: NSObject {
     var cards = [Card]()
-    var associatedEmjois = [Int: String]()
+    var associatedEmojiss = [Card: String]()
     
     weak var delegate: ConcentrationCollectionProviderDelegate?
     
