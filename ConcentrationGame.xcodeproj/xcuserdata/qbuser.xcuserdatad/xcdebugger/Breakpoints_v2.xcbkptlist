@@ -46,8 +46,8 @@
             filePath = "concentration/Modules/Concentration/ViewModels/ConcentrationViewModel.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "129"
-            endingLineNumber = "129"
+            startingLineNumber = "131"
+            endingLineNumber = "131"
             landmarkName = "userTappedCard(ofIndex:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -62,40 +62,8 @@
             filePath = "concentration/Modules/Concentration/ViewModels/ConcentrationViewModel.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "151"
-            endingLineNumber = "151"
-            landmarkName = "userTappedDifferentCard(currentIndex:referenceIndex:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "96ED0EFE-BBD8-4608-84FA-5B2002C53644"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "concentration/Modules/Concentration/ViewModels/ConcentrationViewModel.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "164"
-            endingLineNumber = "164"
-            landmarkName = "userTappedDifferentCard(currentIndex:referenceIndex:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "8350286B-7D95-45DE-87B0-0BBB008BA1AB"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "concentration/Modules/Concentration/ViewModels/ConcentrationViewModel.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "169"
-            endingLineNumber = "169"
+            startingLineNumber = "153"
+            endingLineNumber = "153"
             landmarkName = "userTappedDifferentCard(currentIndex:referenceIndex:)"
             landmarkType = "7">
          </BreakpointContent>

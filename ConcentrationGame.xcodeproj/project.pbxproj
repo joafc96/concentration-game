@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		0B383C4A293346AB00F5D5A7 /* concentrationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B383C49293346AB00F5D5A7 /* concentrationTests.swift */; };
+		0B383C4A293346AB00F5D5A7 /* ConcentrationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B383C49293346AB00F5D5A7 /* ConcentrationTests.swift */; };
 		0B4EF12629339E4900FD1E88 /* UIView+layout+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B4EF12529339E4900FD1E88 /* UIView+layout+Extensions.swift */; };
 		0B4EF12829339F1F00FD1E88 /* ConcentrationCollectionProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B4EF12729339F1F00FD1E88 /* ConcentrationCollectionProvider.swift */; };
 		0B4EF12A2933A2EC00FD1E88 /* ConcentrationCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B4EF1292933A2EC00FD1E88 /* ConcentrationCollectionViewCell.swift */; };
@@ -54,7 +54,7 @@
 
 /* Begin PBXFileReference section */
 		0B383C47293346AB00F5D5A7 /* concentrationTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = concentrationTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		0B383C49293346AB00F5D5A7 /* concentrationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = concentrationTests.swift; sourceTree = "<group>"; };
+		0B383C49293346AB00F5D5A7 /* ConcentrationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConcentrationTests.swift; sourceTree = "<group>"; };
 		0B4EF12529339E4900FD1E88 /* UIView+layout+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+layout+Extensions.swift"; sourceTree = "<group>"; };
 		0B4EF12729339F1F00FD1E88 /* ConcentrationCollectionProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConcentrationCollectionProvider.swift; sourceTree = "<group>"; };
 		0B4EF1292933A2EC00FD1E88 /* ConcentrationCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConcentrationCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -131,12 +131,12 @@
 			path = Helpers;
 			sourceTree = "<group>";
 		};
-		0B383C48293346AB00F5D5A7 /* concentrationTests */ = {
+		0B383C48293346AB00F5D5A7 /* ConcentrationTests */ = {
 			isa = PBXGroup;
 			children = (
-				0B383C49293346AB00F5D5A7 /* concentrationTests.swift */,
+				0B383C49293346AB00F5D5A7 /* ConcentrationTests.swift */,
 			);
-			path = concentrationTests;
+			path = ConcentrationTests;
 			sourceTree = "<group>";
 		};
 		0B4EF1222933942900FD1E88 /* Extensions */ = {
@@ -154,8 +154,8 @@
 		0BA1C5962932237700A66C15 = {
 			isa = PBXGroup;
 			children = (
-				0BA1C5A12932237700A66C15 /* concentration */,
-				0B383C48293346AB00F5D5A7 /* concentrationTests */,
+				0BA1C5A12932237700A66C15 /* Concentration */,
+				0B383C48293346AB00F5D5A7 /* ConcentrationTests */,
 				0BA1C5A02932237700A66C15 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -169,7 +169,7 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		0BA1C5A12932237700A66C15 /* concentration */ = {
+		0BA1C5A12932237700A66C15 /* Concentration */ = {
 			isa = PBXGroup;
 			children = (
 				0B383C3D29332C5F00F5D5A7 /* Utils */,
@@ -177,7 +177,7 @@
 				0BA1C5B7293225C300A66C15 /* SupportingFiles */,
 				0BA1C5B02932237800A66C15 /* Info.plist */,
 			);
-			path = concentration;
+			path = Concentration;
 			sourceTree = "<group>";
 		};
 		0BA1C5B7293225C300A66C15 /* SupportingFiles */ = {
@@ -328,7 +328,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 0BA1C59A2932237700A66C15 /* Build configuration list for PBXProject "Concentration" */;
+			buildConfigurationList = 0BA1C59A2932237700A66C15 /* Build configuration list for PBXProject "ConcentrationGame" */;
 			compatibilityVersion = "Xcode 14.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -371,7 +371,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0B383C4A293346AB00F5D5A7 /* concentrationTests.swift in Sources */,
+				0B383C4A293346AB00F5D5A7 /* ConcentrationTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -648,7 +648,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		0BA1C59A2932237700A66C15 /* Build configuration list for PBXProject "Concentration" */ = {
+		0BA1C59A2932237700A66C15 /* Build configuration list for PBXProject "ConcentrationGame" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				0BA1C5B12932237800A66C15 /* Debug */,

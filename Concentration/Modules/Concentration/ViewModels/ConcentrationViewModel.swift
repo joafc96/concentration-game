@@ -35,8 +35,11 @@ final class ConcentrationViewModel: ConcentrationViewModelProtocol {
     private let numberOfCardPairs: Int
     private let isShuffled: Bool
     
-    private var referenceIndex: Int?
+    private(set) var referenceIndex: Int?
     private(set) var cards: [Card] = [Card]()
+    
+    private var emojiChoices: [String] = [String]()
+    private(set) var associatedCardEmojiDictionary: [Card: String] = [Card: String]()
     
     private(set) var flipCount: Int = 0 {
         didSet {
@@ -50,9 +53,6 @@ final class ConcentrationViewModel: ConcentrationViewModelProtocol {
         }
     }
 
-    private var emojiChoices: [String] = Emojicategory.flag.getEmojis()
-    private(set) var associatedCardEmojiDictionary: [Card: String] = [Card: String]()
-    
     weak var delegate: ConcentrationGameProtocol?
     
     // MARK: - Initializers
@@ -71,8 +71,10 @@ final class ConcentrationViewModel: ConcentrationViewModelProtocol {
 // MARK: - Card Generation Methods
 extension ConcentrationViewModel {
     func startGame() {
+        emojiChoices = Emojicategory.flag.getEmojis()
         cards = generateCards(for: numberOfCardPairs)
         assignEmojis()
+        
         delegate?.concentrationGameDidStart(self)
         
         print(associatedCardEmojiDictionary)
@@ -83,7 +85,7 @@ extension ConcentrationViewModel {
         referenceIndex = nil
         flipCount = 0
         currentScore = 0
-        emojiChoices = Emojicategory.flag.getEmojis()
+        emojiChoices = [String]()
         associatedCardEmojiDictionary = [Card: String]()
         startGame()
     }
@@ -158,19 +160,24 @@ extension ConcentrationViewModel {
                 decrementCurrentScore()
             }
         
-            // First both the cards are true so user can view the image and after a delay id provided and are hidden
-            let delayTime = DispatchTime.now() +  Constants.cardDelayDuration
-            DispatchQueue.main.asyncAfter(deadline: delayTime) { [weak self] in
-                guard let strongSelf = self else { return }
-                // update both the cards to be hidden
-                strongSelf.cards[currentIndex].isFaceUp = false
-                strongSelf.cards[referenceIndex].isFaceUp = false
-                
-                strongSelf.delegate?.concentrationGame(strongSelf, hideCards: [currentIndex, referenceIndex])
-            }
+            provideDelayAndHideCards(currentIndex: currentIndex, referenceIndex: referenceIndex)
+          
         }
         // update the previous card index to nil to start a new selection
         self.referenceIndex = nil
+    }
+    
+    private func provideDelayAndHideCards(currentIndex: Int, referenceIndex: Int) {
+        // First both the cards are true so user can view the image and after a delay is provided and are hidden
+        let delayTime = DispatchTime.now() +  Constants.cardDelayDuration
+        DispatchQueue.main.asyncAfter(deadline: delayTime) { [weak self] in
+            guard let strongSelf = self else { return }
+            // update both the cards to be hidden
+            strongSelf.cards[currentIndex].isFaceUp = false
+            strongSelf.cards[referenceIndex].isFaceUp = false
+            
+            strongSelf.delegate?.concentrationGame(strongSelf, hideCards: [currentIndex, referenceIndex])
+        }
     }
     
     private func incrementCurrentScore() {
