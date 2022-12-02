@@ -9,7 +9,7 @@ import XCTest
 import Foundation
 @testable import concentration
 
-final class concentrationTests: XCTestCase {
+final class ConcentrationTests: XCTestCase {
     
     var concenterationViewModel: ConcentrationViewModel!
     let numberOfCards = 16

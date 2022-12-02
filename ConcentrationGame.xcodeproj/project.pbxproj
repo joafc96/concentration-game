@@ -131,12 +131,12 @@
 			path = Helpers;
 			sourceTree = "<group>";
 		};
-		0B383C48293346AB00F5D5A7 /* ConcentrationTests */ = {
+		0B383C48293346AB00F5D5A7 /* ConcentrationGameTests */ = {
 			isa = PBXGroup;
 			children = (
 				0B383C49293346AB00F5D5A7 /* ConcentrationTests.swift */,
 			);
-			path = ConcentrationTests;
+			path = ConcentrationGameTests;
 			sourceTree = "<group>";
 		};
 		0B4EF1222933942900FD1E88 /* Extensions */ = {
@@ -154,8 +154,8 @@
 		0BA1C5962932237700A66C15 = {
 			isa = PBXGroup;
 			children = (
-				0BA1C5A12932237700A66C15 /* Concentration */,
-				0B383C48293346AB00F5D5A7 /* ConcentrationTests */,
+				0BA1C5A12932237700A66C15 /* ConcentrationGame */,
+				0B383C48293346AB00F5D5A7 /* ConcentrationGameTests */,
 				0BA1C5A02932237700A66C15 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -169,7 +169,7 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		0BA1C5A12932237700A66C15 /* Concentration */ = {
+		0BA1C5A12932237700A66C15 /* ConcentrationGame */ = {
 			isa = PBXGroup;
 			children = (
 				0B383C3D29332C5F00F5D5A7 /* Utils */,
@@ -177,7 +177,7 @@
 				0BA1C5B7293225C300A66C15 /* SupportingFiles */,
 				0BA1C5B02932237800A66C15 /* Info.plist */,
 			);
-			path = Concentration;
+			path = ConcentrationGame;
 			sourceTree = "<group>";
 		};
 		0BA1C5B7293225C300A66C15 /* SupportingFiles */ = {
@@ -590,7 +590,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = concentration/Info.plist;
+				INFOPLIST_FILE = ConcentrationGame/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen.storyboard;
 				INFOPLIST_KEY_UIMainStoryboardFile = "";
@@ -617,7 +617,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = concentration/Info.plist;
+				INFOPLIST_FILE = ConcentrationGame/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen.storyboard;
 				INFOPLIST_KEY_UIMainStoryboardFile = "";
