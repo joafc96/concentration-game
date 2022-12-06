@@ -34,6 +34,7 @@ final class ConcentrationViewModel: ConcentrationViewModelProtocol {
     // MARK: - Stored Properties
     private let numberOfCardPairs: Int
     private let isShuffled: Bool
+    private let emojiCategory: Emojicategory
     
     private(set) var referenceIndex: Int?
     private(set) var cards: [Card] = [Card]()
@@ -56,11 +57,12 @@ final class ConcentrationViewModel: ConcentrationViewModelProtocol {
     weak var delegate: ConcentrationGameProtocol?
     
     // MARK: - Initializers
-    init(numberOfCardPairs: Int = 12, isShuffled: Bool = false) {
+    init(numberOfCardPairs: Int = 12, isShuffled: Bool = true, emojiCategory: Emojicategory = Emojicategory.flag) {
         assert(numberOfCardPairs > 0, "ConcentrationViewModel.init\(numberOfCardPairs): you must have at least one pair of cards")
         assert (numberOfCardPairs % 2 == 0, "ConcentrationViewModel.init\(numberOfCardPairs): you must have even number of card pairs to generate the playing cards.")
         self.numberOfCardPairs = numberOfCardPairs
         self.isShuffled = isShuffled
+        self.emojiCategory = emojiCategory
     }
     
     deinit {
@@ -71,7 +73,7 @@ final class ConcentrationViewModel: ConcentrationViewModelProtocol {
 // MARK: - Card Generation Methods
 extension ConcentrationViewModel {
     func startGame() {
-        emojiChoices = Emojicategory.flag.getEmojis()
+        emojiChoices = emojiCategory.getEmojis()
         cards = generateCards(for: numberOfCardPairs)
         assignEmojis()
         
