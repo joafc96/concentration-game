@@ -56,7 +56,7 @@ final class ConcentrationViewModel: ConcentrationViewModelProtocol {
     weak var delegate: ConcentrationGameProtocol?
     
     // MARK: - Initializers
-    init(numberOfCardPairs: Int = 12, isShuffled: Bool = true) {
+    init(numberOfCardPairs: Int = 12, isShuffled: Bool = false) {
         assert(numberOfCardPairs > 0, "ConcentrationViewModel.init\(numberOfCardPairs): you must have at least one pair of cards")
         assert (numberOfCardPairs % 2 == 0, "ConcentrationViewModel.init\(numberOfCardPairs): you must have even number of card pairs to generate the playing cards.")
         self.numberOfCardPairs = numberOfCardPairs
@@ -76,8 +76,6 @@ extension ConcentrationViewModel {
         assignEmojis()
         
         delegate?.concentrationGameDidStart(self)
-        
-        print(associatedCardEmojiDictionary)
     }
     
     func restartGame() {
@@ -189,18 +187,12 @@ extension ConcentrationViewModel {
     }
     
     private func isFlipCountGreater(currentCard: Card, matchingcard: Card) -> Bool {
-        if currentCard.flipCount > 1 || matchingcard.flipCount > 1 {
-            return true
-        }
-        return false
+        return currentCard.flipCount > 1 || matchingcard.flipCount > 1
     }
     
     private func isGameCompleted() -> Bool {
-        for card in cards {
-            if !card.isMatched  {
-                return false
-            }
-        }
-        return true
+        return cards.indices.filter {
+            !cards[$0].isMatched
+        }.isEmpty
     }
 }
