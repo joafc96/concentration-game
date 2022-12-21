@@ -5,9 +5,11 @@ This app allows you to play the card game "Concentration", also known as "Memory
 
 ## Screenshots
 
-<a href="http://imgur.com/tKABtme.png"><img src="http://imgur.com/tKABtme.png" width="280" alt="2048 Multiplayer Screenshot 1"></a>
-<a href="http://imgur.com/EOfw7e6.png"><img src="http://imgur.com/EOfw7e6.png" width="280" alt="2048 Multiplayer Screenshot 2"></a>
-<a href="http://i.imgur.com/ZYC6t18.png"><img src="http://i.imgur.com/ZYC6t18.png" width="280" alt="2048 Multiplayer Screenshot 3"></a>
+<p align="center">
+    <img alt="Screenshot" src="https://github.com/joafc96/concentration-game/blob/main/ConcentrationGame/Screenshots/earth_theme_screenshot.png" width="220" height="480">
+    <img alt="Screenshot" src="https://github.com/joafc96/concentration-game/blob/main/ConcentrationGame/Screenshots/nebula_theme_screenshot.png" width="220" height="480">
+    <img alt="Screenshot" src="https://github.com/joafc96/concentration-game/blob/main/ConcentrationGame/Screenshots/neptune_theme_screenshot.png" width="220" height="480">
+</p>
 
 ## Tech Stack
 * Swift
