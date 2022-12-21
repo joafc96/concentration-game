@@ -40,6 +40,7 @@
 		0BDAFD972937B86C00C8D509 /* JupiterTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BDAFD962937B86C00C8D509 /* JupiterTheme.swift */; };
 		0BDAFD992937BEB500C8D509 /* SoundEffect.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BDAFD982937BEB500C8D509 /* SoundEffect.swift */; };
 		0BDAFD9B2937CBA600C8D509 /* UranusTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BDAFD9A2937CBA600C8D509 /* UranusTheme.swift */; };
+		0BEAFA9E2952F26A00D38C0A /* screesnhots.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BEAFA9D2952F26A00D38C0A /* screesnhots.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -89,6 +90,7 @@
 		0BDAFD962937B86C00C8D509 /* JupiterTheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JupiterTheme.swift; sourceTree = "<group>"; };
 		0BDAFD982937BEB500C8D509 /* SoundEffect.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundEffect.swift; sourceTree = "<group>"; };
 		0BDAFD9A2937CBA600C8D509 /* UranusTheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UranusTheme.swift; sourceTree = "<group>"; };
+		0BEAFA9D2952F26A00D38C0A /* screesnhots.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = screesnhots.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -275,6 +277,7 @@
 		0BEAFA9C2952F12500D38C0A /* Screenshots */ = {
 			isa = PBXGroup;
 			children = (
+				0BEAFA9D2952F26A00D38C0A /* screesnhots.swift */,
 			);
 			path = Screenshots;
 			sourceTree = "<group>";
@@ -412,6 +415,7 @@
 				0BB552932936033300271621 /* FontHelper.swift in Sources */,
 				0BA1C5A32932237700A66C15 /* AppDelegate.swift in Sources */,
 				0BA1C5A52932237700A66C15 /* SceneDelegate.swift in Sources */,
+				0BEAFA9E2952F26A00D38C0A /* screesnhots.swift in Sources */,
 				0B4EF12E2933AC4000FD1E88 /* CollectionView+Extensions.swift in Sources */,
 				0BBECFA8293781B50033F552 /* NeptuneTheme.swift in Sources */,
 				0BBECFAC293785160033F552 /* ThemeIdentifier.swift in Sources */,
