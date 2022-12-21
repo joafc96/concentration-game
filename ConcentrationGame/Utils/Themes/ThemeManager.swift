@@ -9,7 +9,7 @@ import Foundation
 
 final class ThemeManager {
     static let shared = ThemeManager()
-    private var currentTheme: ThemeProtocol = NebulaTheme()
+    private var currentTheme: ThemeProtocol = NeptuneTheme()
 
     func applyTheme(theme: ThemeProtocol) {
         self.currentTheme = theme
