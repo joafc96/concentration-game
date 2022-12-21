@@ -20,7 +20,6 @@ This app allows you to play the card game "Concentration", also known as "Memory
 ## Features
 * MVVM Architecture
 * No Storyboards
+* Unit Tests
 * Multiple Themes
-* Flip Count
-* Score
 * Flip Animations
